@@ -42,6 +42,15 @@ public class Launcher {
 		//Using the swordFight method of the Pirate class
 		System.out.println(blackBeard.swordFight());
 		
+		//System.out.println(tyler.swordFight());
+		//Objects of type Person cannot call the Pirate-specific swordFight() method.
+		//Pirate extends Person, so Pirate has everything Person has, but not the other way around
+		
+		//use the OVERRIDDEN talk() method of the Pirate class
+		System.out.println(blackBeard.talk("ARGS"));
+		
+		System.out.println("==================================(Casting)");
+		
 		
 		
 	}

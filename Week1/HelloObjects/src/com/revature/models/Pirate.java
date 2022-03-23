@@ -15,11 +15,20 @@ public class Pirate extends Person {
 	}
 
 	
-	//Method Overriding below---------------------
+	//Method Overriding below---------- Note the @Override annotation, which indicates an overridden method
 	
+	//Without Overriding, the Pirate Class would have the exact same talk() method as the Person Class...
+	//But here, we declare the same method signature, with a different implementation (aka method body)
+	//Why do we do this? So that the Pirate Class can have it's own specific functionality for the talk() method
+	@Override 
+	public String talk(String words) {
+		return "Pirate says: " + words;
+	}
 	
 	
 	//Making a no-args and all-args constructors-----------
+	
+	//Constructors are a great example of METHOD OVERLOADING - methods with the same name, but different arguments
 	
 	public Pirate() {
 		super(); //This call to super() will call the no-args constructor of the parent class (Person)
