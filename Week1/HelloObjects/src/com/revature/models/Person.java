@@ -13,7 +13,7 @@ public class Person {
 	//declare a method for the Person class
 	
 	//This method will return a String with the "return" keyword, and take in a String to create what the Person says
-	public String talk(String words) {
+	public String talk(String words) {		
 		return "Person says: " + words;
 	}
 	
