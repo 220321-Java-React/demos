@@ -51,7 +51,42 @@ public class Launcher {
 		
 		System.out.println("==================================(Casting)");
 		
+		//using upcasting-----------------
 		
+		//a subclass-type object (Pirate) gets assigned to a superclass-type variable (Person)
+		Person upcastedPerson = new Pirate();
+		
+		//this is legal and done implicitly by the compiler, because a Pirate will always be a Person
+		
+		//upcastedPerson.swordFight();
+		//upcastedPerson.pegLegs;
+		//upcastedPerson is of type Person... so the swordFight() method and pegLegs variable aren't visible
+		
+		System.out.println(upcastedPerson.talk("I'm visible because upcasting lets me be"));
+		//upcastedPerson is of type Person, BUT the Pirate-specific version of talk() will be used. Because we upcasted!
+		
+		System.out.println(upcastedPerson.name);
+		//upcastedPerson is of type Person, so all of the Person-specific variables are visible
+		
+		//so in summary, we have a kind of hybrid object that has all of Person's members, 
+		//and only Pirate's overridden methods
+		
+		//using downcasting------------------------------------------
+		
+		//Pirate p = (Pirate) new Person();
+		//This will compile, but error out at runtime - 
+		//It's illegal because not all Persons are necessarily Pirates. Java doesn't know how to make this distinction
+		
+		//parent type reference variable assigned to a child class object (upcasting), THEN we can legally downcast
+		Person p1 = new Pirate();
+		Pirate p2 = (Pirate) p1; //legal downcasting. Basically turning an upcasted variable into the child class again
+		
+		System.out.println(p2.peglegs); //now we can access Pirate specific members again!!
+		System.out.println(p2.swordFight());
+		
+		//this is really the only reason you'd downcast - to access child specific members that were hidden by an upcast
+		
+		//but if you really need Pirate members, just save yourself some steps and make a Pirate object in the first place
 		
 	}
 	
