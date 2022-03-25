@@ -75,6 +75,37 @@ public class Launcher {
 		System.out.println(pangram.charAt(pangram.length() - 1));
 		
 		//.charAt in a for loop
+		for(int i = 0; i < pangram.length(); i++) {
+			System.out.println(pangram.charAt(i));
+		}
+		
+		//.substring() returns a String that's found within the given indexes
+		System.out.println(pangram.substring(4, 25)); //this will print characters 4-25 of our pangram String
+		
+		//one more method - .split() will create an Array via specified delimiters
+		String[] words = pangram.split(" "); 
+		//This checks for spaces, and every String separated by spaces will be an Array element
+		
+		System.out.println(words); //This will simply print a memory address
+		
+		//we'll use an enhanced for loop to print out the word Array's contents
+		for(String word : words) { //"For every String (denoted by the "word" variable) in the words Array, do this"
+			System.out.println(word);
+			//for every word in the words Array, print it out
+			//Recall that the words Array came from using the .split() method above
+		}
+		
+		//enhanced for loops are a super convenient way to iterate through things like Arrays
+		
+		//Wrapping up String talk:
+		
+		//Note that the above methods WON'T actually change the original pangram String
+		//we've been using method to print manipulations of the original, but they aren't changing the string itself
+		
+		//See StringBuilder/StringBuffer for mutable String-like behavior
+	
+		System.out.println("=============================(Using StringBuilder)");
+		
 		
 		
 	}
