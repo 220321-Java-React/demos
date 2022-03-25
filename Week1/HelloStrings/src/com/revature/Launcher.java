@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.Scanner;
+
 public class Launcher {
 
 	public static void main(String[] args) {
@@ -106,7 +108,47 @@ public class Launcher {
 	
 		System.out.println("=============================(Using StringBuilder)");
 		
+		//instantiate a new StringBuilder object based on our pangram String above
+		StringBuilder sb = new StringBuilder(pangram); //we're using the pangram ref variable in the SB's constructor
 		
+		System.out.println(sb); //our StringBuilder now has the value of the pangram String
+		
+		//perform some mutations using StringBuilder methods
+		sb.reverse(); //reverse the characters
+		sb.append("BENJAMIN"); //append my name to the end of the StringBuilder
+		sb.insert(12, "ADRIENNE and YOU are in here as well");
+		sb.delete(30, 35); //delete the chars foudn in indexes 30-35
+		sb.replace(0, 8, "Hello from the replace method"); //replace the chars in indexes 0-8
+		
+		System.out.println(sb); //we get printed out whatever this is
+		
+		//StringBuilders have the .toString(), which will convert it into a String if you need a String specifically
+		String newerString = sb.toString();
+		
+		System.out.println(newerString);
+		
+		System.out.println("=========================(Scanner)");
+		
+		//instantiate a Scanner object
+		Scanner scan = new Scanner(System.in); //System.in is how we tell Scanner we're taking inputs from the console
+		
+		System.out.println("What's your name?"); //ask the user a question they must answer
+		
+		String name = scan.nextLine(); //the nextLine() method gather a user input STRING and moves to the next line
+		
+		System.out.println(name + "?... That's a lovely name.");
+		
+		System.out.println("How old are you?");
+		
+		int age = scan.nextInt(); //nextInt() will grab a user inputted int, but doesn't make a new line...
+		scan.nextLine(); //we need to explicitly call nextLine() in order to actually move to the next line
+		//without nextLine() you won't be able to add any more user input!!
+		
+		System.out.println("What?!?!?!?!??!" + age + "?? what's your secret?");
+		
+		String secret = scan.nextLine();
+		
+		System.out.println("OK starting tomorrow I'll " + secret);
 		
 	}
 	
