@@ -1,8 +1,7 @@
 package com.revature.models;
 
 //This is an abstract class, note the abstract keyword. It will also implement our Growable Interface
-//
-//
+//So now, this abstract class also has access to the variables and methods in Growable
 public abstract class Fruit implements Growable {
 	
 	//abstract classes can have variables
@@ -30,7 +29,5 @@ public abstract class Fruit implements Growable {
 		this.name = name;
 		this.color = color;
 	}
-	
-	
 	
 }
