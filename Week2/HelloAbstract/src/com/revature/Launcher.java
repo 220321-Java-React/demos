@@ -22,7 +22,7 @@ public class Launcher {
 		//we can also directly access the variables found in the abstract class and interface
 		System.out.println(strawberry.color);
 		System.out.println(strawberry.name);
-		System.out.println(strawberry.unitOfTime);
+		System.out.println(Berry.unitOfTime); //unitOfTime of static so technically we should call it from the Berry class
 		
 	}
 	
