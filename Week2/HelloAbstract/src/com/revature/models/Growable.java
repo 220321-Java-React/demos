@@ -15,7 +15,7 @@ public interface Growable {
 	
 	/*
 	default void someMethod() {
-		SOME COODE WOULD GO HERE
+		SOME CODE WOULD GO HERE
 	}
 	*/
 }
