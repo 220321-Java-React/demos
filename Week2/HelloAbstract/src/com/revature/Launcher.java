@@ -1,6 +1,9 @@
 package com.revature;
 
+import java.util.*;
+
 import com.revature.models.Berry;
+
 
 public class Launcher {
 
@@ -23,6 +26,9 @@ public class Launcher {
 		System.out.println(strawberry.color);
 		System.out.println(strawberry.name);
 		System.out.println(Berry.unitOfTime); //unitOfTime of static so technically we should call it from the Berry class
+		
+		
+		Scanner scan = new Scanner(System.in);
 		
 	}
 	
