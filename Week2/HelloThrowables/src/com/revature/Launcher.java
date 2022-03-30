@@ -28,7 +28,7 @@ public class Launcher {
 		//Thus, an ArrayIndexOutOfBoundsException will be thrown
 		//System.out.println(numbers[3]);
 		
-		System.out.println("===========================(Catching our Custom Exceptions)");
+		System.out.println("===========================(Catching our Custom Exceptions with Try/Catch)");
 		
 		//the compiler will let you call this method... but it'll end up crashing your application
 		//this method throws an UNCHECKED aka RUNTIME exception... the application crashes at runtime.
@@ -43,8 +43,35 @@ public class Launcher {
 		//we usually won't, but I did it for science. 
 		//Typically, we'll use try/catch/finally blocks. Observe:
 		
+		try { //try will TRY a block of code that may or may not throw an exception
+			
+			System.out.println("try block starting...");
+			
+			throwChecked(); //we throw a Checked Exception here, specifically MyCheckedException
+			
+			System.out.println("I won't print - once the Exception is throw, the rest of the try block is skipped");
+			
+		} catch (MyUncheckedException e) {
+			
+			System.out.println("Will I run? NO!!!! I'm only checking for MyUncheckedException");
+			
+		} catch (MyCheckedException e) {
+			
+			System.out.println("Hello from the catch block - MyCheckedException was caught!!");
+			//this catch block runs! It it looking to catch MyCheckedException, which is what was thrown in the try block
 		
+		} catch (Exception e) {
+			
+			System.out.println("I could've caught any kind of Exception");
+			
+		} finally { //finally is an optional block that runs after the try completes or the catch catches an Exception.
+			
+			System.out.println("Hello from the finally block - I will always run!");
+			
+		}
 		
+		//It's best practice to write your catch blocks from most specific to most generic.
+		//Very common to see the final catch block catch just a generic Exception, as a safety precaution
 		
 	}
 	
