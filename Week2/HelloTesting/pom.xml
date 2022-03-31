@@ -11,7 +11,21 @@
   	<maven.compiler.source>1.8</maven.compiler.source>
 	<maven.compiler.target>1.8</maven.compiler.target>  
   </properties>
-
-
+	
+  <!-- Within the dependencies tag, we'll put all the dependencies that we want in our maven project -->
+  <dependencies>
   
+  	<!-- https://mvnrepository.com/artifact/junit/junit -->
+	<dependency>
+	    <groupId>junit</groupId>
+	    <artifactId>junit</artifactId>
+	    <version>4.12</version>
+	    <scope>test</scope>
+	</dependency>
+  
+  </dependencies>		
+  
+  <!-- WHEN YOU MAKE CHANGES TO THE POM.XML: 
+  don't forget to save all, right click the project -> maven -> update project -->
+  	
 </project>
