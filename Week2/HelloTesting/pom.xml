@@ -4,8 +4,14 @@
   <artifactId>HelloTesting</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
-  
-  
+  <!-- This is the pom.xml, where we declare dependencies and configure things like our Java version -->
+
+  <!--  The properties tag will let us set out Java Version -->
+  <properties>
+  	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>  
+  </properties>
+
+
   
 </project>
