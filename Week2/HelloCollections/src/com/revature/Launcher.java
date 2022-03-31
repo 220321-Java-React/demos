@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.TreeMap;
 
 import com.revature.models.Pokemon;
 
@@ -139,7 +140,42 @@ public class Launcher {
 		
 		System.out.println("=====================================(Maps)");
 		
+		//Instantiate a TreeMap, which is our general purpose Map type
+		//This TreeMap takes Integer for the key, and Pokemon for the value
+		TreeMap<Integer, Pokemon> pokeMap = new TreeMap<>();
 		
+		//Why are we using Integer, and not int?
+		//Collections only deal with objects! We have to use what's called the Wrapper Class for primitives
+		//Basically, every primitive has a Class version, for when we need objects, like in Collections.
+		
+		//use the .put() method to insert values into the map
+		//these pokemon objects are coming from the ones we made when we did Sets
+		pokeMap.put(1, pidgey);
+		pokeMap.put(15, torchic);
+		pokeMap.put(2, chansey);
+		
+		//We can specify whatever we want for the keys and value! doesn't have to start at zero, or go in order
+		
+		//We can print the TreeMap, but it's hard to loop through maps
+		System.out.println(pokeMap);
+		//Notice how in TreeMaps, order is based on key
+		
+		//We can find values by searching for a key
+		System.out.println(pokeMap.get(1));
+		System.out.println(pokeMap.get(15));
+		System.out.println(pokeMap.get(5)); //this returns null, there's no key 5 in this Map.
+		
+		//size of the TreeMap is 3 despite the keys going up to 15
+		System.out.println(pokeMap.size());
+		
+		//Keys can be Alphabetic as well, doesn't have to be Integers
+		TreeMap<String, String> newTreeMap = new TreeMap<>();
+		
+		newTreeMap.put("A", "This is the letter A");
+		newTreeMap.put("B", "This is the letter B");
+		newTreeMap.put("C", "This is the letter C");
+		
+		System.out.println(newTreeMap);
 		
 	}
 	
