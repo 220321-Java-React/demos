@@ -1,11 +1,11 @@
 package com.revature;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.LinkedList;
 
 import com.revature.models.Pokemon;
-
-
-//BEN WILL WRITE SOME GENERAL COMMENTS ABOUT COLLECTIONS UP HERE
 
 //Collections are like Arrays in that they are objects that hold data BUT there are quite a few differences
 //Collections are DYNAMICALLY SIZED, which means we can change their size. We can't do that with Arrays.
@@ -66,12 +66,76 @@ public class Launcher {
 		myPokemonList.forEach(pokemon -> System.out.println(pokemon.name + " remains"));
 		
 		System.out.println("====================================(Sets)");
+	
+		//Instantiate an empty HashSet
+		HashSet<Pokemon> myPokemonSet = new HashSet<>();
 		
+		//Make some Pokemon objects
+		Pokemon totodile = new Pokemon("Totodile", "Water");
+		Pokemon chansey = new Pokemon("Chansey", "Normal");
+		Pokemon torchic = new Pokemon("Torchic", "Fire");
+		Pokemon pidgey = new Pokemon("Pidgey", "Normal/Flying");
 		
+		//Add those Pokemon objects into our HashSet
+		myPokemonSet.add(totodile);
+		myPokemonSet.add(chansey);
+		myPokemonSet.add(torchic);
+		myPokemonSet.add(pidgey);
+		myPokemonSet.add(pidgey); //Java will let you try to add a duplicate value here... but...
+		
+		//Notice how Sets have no particular order, unlike Lists
+		//Also note how no duplicates are allowed
+		for(Pokemon p : myPokemonSet) {
+			System.out.println(p);
+		}
+		
+		//.contains() returns a boolean of true if the Set contains the specified object
+		if(myPokemonSet.contains(torchic)) {
+			System.out.println("Torchic is in my party!");
+		} else {
+			System.out.println("No Torchics to be found...");
+		}
+		
+		System.out.println(myPokemonSet);
+		
+		//Sets have no index... but if we use .iterator(), we can create an Iterator from that Sets values
+		Iterator<Pokemon> iterator = myPokemonSet.iterator();
+		
+		//hasNext() checks to see if there are values as we iterate through a data structure. returns a boolean
+		while(iterator.hasNext()) {
+			System.out.println(iterator.next());
+		}
+		//"While iterating though, if there is another value, do this code" (which in this case is just printing)
+		//This iterator is NOT a HashSet, but it stole the values from our old HashSet.
+		//Why would we use this over an ArrayList? tbh I wouldn't, I'd rather just use an ArrayList
+		//Iterator is kind of like a long way of getting List-like behavior from a Set. You'll probs just want a List lol
 		
 		System.out.println("====================================(Queues)");
 		
+		//Instantiate a new LinkedList (which implements both List and Queue)
+		LinkedList<Pokemon> pokemonLL = new LinkedList<>();
 		
+		//Add some Pokemon
+		pokemonLL.add(new Pokemon("Wobbuffet", "Psychic"));
+		pokemonLL.add(new Pokemon("Snorlax", "Normal"));
+		pokemonLL.add(new Pokemon("Mew", "Psychic"));
+		
+		//Iterate through the LinkedList and print out the values using an enhanced for loop
+		for(Pokemon p : pokemonLL) {
+			System.out.println(p);
+		}
+		//Just like with Lists, Queues have a strict order
+		
+		//.peek() selects the first value
+		System.out.println(pokemonLL.peek().name + " is the first Pokemon in the LinkedList");
+		
+		//.poll() selects and removes the first values
+		System.out.println(pokemonLL.poll().name + " has left the chat...");
+		
+		//Print them out
+		for(Pokemon p : pokemonLL) {
+			System.out.println(p);
+		}
 		
 		System.out.println("=====================================(Maps)");
 		

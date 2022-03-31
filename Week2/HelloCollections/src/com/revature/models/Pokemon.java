@@ -4,6 +4,7 @@ public class Pokemon {
 
 	//variables for the Pokemon class
 	//BEN WILL REMEMBER TO MAKE THESE PRIVATE FOR ENCAPSULATION********************************************
+	//nvm :) ben is gonna show encapsulation in the P0Demo
 	public String name;
 	public String type;
 	
