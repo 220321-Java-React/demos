@@ -1,5 +1,6 @@
 package com.revature;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
@@ -43,10 +44,34 @@ public class CalculatorTests {
 	
 		int result = calc.add(i, j); //we're assigning the result of the add() method to this result variable
 		
-		assertTrue(result == 10); //this test will pass if result == 10.
+		assertTrue(result == 15); //this test will pass if result == 10.
 		
 	}
 	
+	@Test
+	public void testSubtract() {
+		
+		System.out.println("TESTING SUBTRACT METHOD");
+		
+		int result = calc.subtract(j, i);
+		
+		assertEquals(5, result); //takes two parameters, and check for their equality
+		//if 5 is equivalent to the value of the result variable, this test passes
+	}
 	
+	//Above are two POSITIVE tests - which is a test that takes in valid input and tests for valid output
 	
+	//Below is a NEGATIVE test - which is a test that takes invalid input, and makes sure the application acts accordingly
+	
+	//This test will make sure that an ArithmeticException is thrown when dividing by zero
+	
+	@Test(expected = ArithmeticException.class) //This is how we specify what Exception is expected to be thrown
+	public void testZeroDivisionThrowsException() {
+		
+		System.out.println("TRYING TO DIVIDE BY ZERO");
+		
+		calc.divide(i, k); 
+		//we run the exception causing code, which WON'T crash our program, since our test is looking for this
+		
+	}
 }
