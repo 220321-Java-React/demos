@@ -7,8 +7,8 @@ import org.junit.Test;
 //This is a test class! It'll be full of methods that test our Calculator Class
 public class CalculatorTests {
 
-	//initialize a Calculator object so we can use and test it's methods
-	Calculator calc = new Calculator();
+	//declare an uninitialized Calculator object so we can use and test it's methods
+	Calculator calc;
 	
 	//ben may or may not show @Before/AfterAll
 	
