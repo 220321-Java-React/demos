@@ -60,8 +60,16 @@ public class Menu {
 				//call the getEmployees() method from the EmployeeDAO, put the results into a variable
 				ArrayList<Employee> employees = eDAO.getEmployees();
 				
-				//print out the value of our employees variable
-				System.out.println(employees);
+				//print out the values of our employees variables in a forEach
+				//I'm sure you all can find even cleaner ways to print this data out ;)
+				employees.forEach(employee -> {
+					System.out.println("----------------------");
+					System.out.println(employee.getEmployee_id());
+					System.out.println(employee.getFirst_name());
+					System.out.println(employee.getLast_name());
+					System.out.println("----------------------");
+					//Ben won't forget to show emplyoee.getRole()
+				});
 				
 				break;
 			}
