@@ -22,6 +22,12 @@ public class MyThread extends Thread {
 			System.out.println(sb);
 			
 			//might need to make the thread sleep so we can see it working better
+			//sleep() is a method that makes the thread wait some amount of milliseconds between iterations
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				System.out.println("Exception Caught!");
+			}
 			
 		}
 		
