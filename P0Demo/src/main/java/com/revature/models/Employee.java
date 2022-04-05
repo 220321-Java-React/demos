@@ -8,6 +8,8 @@ public class Employee {
 	private int employee_id;
 	private String first_name;
 	private String last_name;
+	//Every Employee in this application will have a role associated with it
+	private Role role; //in other words, every EMPLOYEE has a ROLE
 
 	
 	//this class won't have any methods, we just need it to represent (aka MODEL) some data
@@ -26,14 +28,22 @@ public class Employee {
 	}
 
 	//all args constructor (source -> constructor from fields)
-	public Employee(int employee_id, String first_name, String last_name) {
+	public Employee(int employee_id, String first_name, String last_name, Role role) {
 		super();
 		this.employee_id = employee_id;
 		this.first_name = first_name;
 		this.last_name = last_name;
+		this.role = role;
 	}
 
-	//BEN WILL ALSO MAKE A CONSTRUCTOR WITH ALL ARGS MINUS ID (so that we can insert new users)
+	//We need an "all args minus id" constructor because the id is handled on the database side
+	//when inserting data into a database, we should give objects with no id since the database gives each record an id
+	public Employee(String first_name, String last_name, Role role) {
+		super();
+		this.first_name = first_name;
+		this.last_name = last_name;
+		this.role = role;
+	}
 	
 	//the toString() method lets us actually print out our objects, since it would print a memory address otherwise
 	//(source -> generate toString)
@@ -42,7 +52,7 @@ public class Employee {
 		return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name + "]";
 	}
 
-	
+
 	//getters and setters allow you to access and change your private variables... ENCAPSULATION
 	//(source -> generate getters and setters, make sure to check all the boxes)
 	public int getEmployee_id() {
