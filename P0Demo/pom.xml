@@ -9,4 +9,7 @@
   	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   
+  <!-- Dependencies like JUnit would go here -->
+  
+  
 </project>

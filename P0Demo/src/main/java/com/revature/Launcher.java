@@ -1,5 +1,7 @@
 package com.revature;
 
+import java.util.ArrayList;
+
 import com.revature.models.Menu;
 
 public class Launcher {
@@ -11,12 +13,14 @@ public class Launcher {
 		//Instantiate our Menu object
 		Menu menu = new Menu();
 		
-		
 		//use the Menu's displayMenu() method to use the Menu
 		menu.displayMenu();
 		
 		//really clean main method! The power of abstraction - 
 		//all the complicated menu code is in the displayMenu() method (abstracted away from us)
+		
+		
+
 		
 	}
 	
