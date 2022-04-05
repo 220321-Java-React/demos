@@ -4,7 +4,9 @@ import java.util.ArrayList;
 
 import com.revature.models.Employee;
 
-//Ben will elaborate on DAO Classes when we actually get our databases working
+//DAO stands for Data Access Object - it's the layer of classes that directly interact with our database
+//EVENTUALLY (not yet) we'll have a bunch of methods here that send SQL statements to our database
+//In order to insert/manipulate/delete/view the data in the database
 
 //PLEASE NOTE OUR ACTUAL DAO WILL LOOK VERY DIFFERENT FROM THIS
 public class EmployeeDAO {
