@@ -49,7 +49,8 @@ public class Employee {
 	//(source -> generate toString)
 	@Override
 	public String toString() {
-		return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name + "]";
+		return "Employee [employee_id=" + employee_id + ", first_name=" + first_name + ", last_name=" + last_name
+				+ ", role=" + role + "]";
 	}
 
 
@@ -58,6 +59,7 @@ public class Employee {
 	public int getEmployee_id() {
 		return employee_id;
 	}
+
 
 	public void setEmployee_id(int employee_id) {
 		this.employee_id = employee_id;
