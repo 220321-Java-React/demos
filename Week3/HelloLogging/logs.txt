@@ -1,0 +1,1 @@
+2022-04-06 12:20:07 INFO  Launcher:37 - User has successfully logged in
