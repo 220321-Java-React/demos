@@ -4,11 +4,21 @@
   <artifactId>HelloLogging</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!-- properties tag lets us do a lot of usefull, but I usually just set the java version with it -->
   <properties>
   	<maven.compiler.source>1.8</maven.compiler.source>
   	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   
-  
+  <!-- The dependencies tag lets us import dependencies to give our application more functionalities -->
+  <dependencies>
+	 <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>2.17.1</version>
+	</dependency>
+  	
+  </dependencies>
   
 </project>
