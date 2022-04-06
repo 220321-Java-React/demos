@@ -38,6 +38,12 @@ public class Launcher {
 				
 				//then some user prompts go here (will do soon)
 				
+			} else {
+				
+				System.out.println("incorrect credentials... try again");
+				
+				log.warn("User failed to log in");
+				
 			}
 			
 		}

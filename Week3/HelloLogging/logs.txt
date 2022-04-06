@@ -1,1 +1,3 @@
 2022-04-06 12:20:07 INFO  Launcher:37 - User has successfully logged in
+2022-04-06 12:28:19 WARN  Launcher:45 - User failed to log in
+2022-04-06 12:28:33 INFO  Launcher:37 - User has successfully logged in
