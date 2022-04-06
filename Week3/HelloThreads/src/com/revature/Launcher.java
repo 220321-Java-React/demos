@@ -23,7 +23,6 @@ public class Launcher {
 			System.out.println("Exception caught");
 		}
 		
-		
 		//let both threads start using the start() method
 		t0.start();
 		t1.start();
