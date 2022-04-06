@@ -30,18 +30,31 @@ public class Launcher {
 			System.out.println("PASSWORD:");
 			String password = scan.nextLine();
 			
+			//these login credentials are HARDCODED - in P0 you'll check usernames and password against those in the DB
 			if(username.equals("user") && password.equals("password")) {
 				
 				System.out.println("Welcome user!");
 				
+				//INFO log - used for general information
 				log.info("User has successfully logged in");
 				
-				//then some user prompts go here (will do soon)
+				System.out.println("What is your favorite animal?");
+				
+				String animal = scan.nextLine();
+				
+				if(animal.equals("Rock")) {
+					log.warn("User is probably not very smart");
+					displayMenu = false; //end the program
+				} else {
+					log.info("User's favorite animal is: " + animal);
+					displayMenu = false; //end the program
+				}
 				
 			} else {
 				
 				System.out.println("incorrect credentials... try again");
 				
+				//WARN log - used for potentially suspicious or risky operations 
 				log.warn("User failed to log in");
 				
 			}

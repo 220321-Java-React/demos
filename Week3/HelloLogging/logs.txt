@@ -1,3 +1,19 @@
 2022-04-06 12:20:07 INFO  Launcher:37 - User has successfully logged in
 2022-04-06 12:28:19 WARN  Launcher:45 - User failed to log in
 2022-04-06 12:28:33 INFO  Launcher:37 - User has successfully logged in
+2022-04-06 16:09:52 WARN  Launcher:56 - User failed to log in
+2022-04-06 16:09:57 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:10:07 WARN  Launcher:46 - User is probably not very smart
+2022-04-06 16:10:44 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:11:00 INFO  Launcher:48 - User's favorite animal is: Eagle
+2022-04-06 16:11:29 WARN  Launcher:56 - User failed to log in
+2022-04-06 16:11:32 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:11:36 WARN  Launcher:46 - User is probably not very smart
+2022-04-06 16:12:25 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:12:28 WARN  Launcher:46 - User is probably not very smart
+2022-04-06 16:12:58 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:13:02 WARN  Launcher:46 - User is probably not very smart
+2022-04-06 16:13:19 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:13:20 WARN  Launcher:46 - User is probably not very smart
+2022-04-06 16:13:35 INFO  Launcher:39 - User has successfully logged in
+2022-04-06 16:13:37 INFO  Launcher:49 - User's favorite animal is: Eagle
