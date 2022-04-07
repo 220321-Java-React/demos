@@ -37,6 +37,34 @@ DROP TABLE users;
 
 --SQL Datatypes
 
+--I'm gonna make a horribly designed table just to demonstrate SQL datatypes
+--This table will not have a primary key, it will not be normalized, these are things that will make sense to you later
+
+--Note that each column is delimited by commas
+CREATE TABLE datatypes (
+	small_number int2, --2 bytes, for smaller numbers (kinda like a short in Java)
+	normal_number int, --4 bytes, most common int type (can also be int4)
+	big_number int8, --8 bytes, for swole numbers (kinda like a long in Java)
+	standard_decimal decimal(10, 2), --2 parameters: (total digits, decimal places)
+	--so this decimal has 10 total digits, with 2 decimal places.
+	
+	"boolean" boolean, --double quotes let you use keywords as column names, etc.
+	
+	fixed_length_text char(2), --text field, in this case we give it 2, which means it can only be 2 characters long
+	variable_length_text varchar(15), --text field, we gave it 15 so it can be between 0-15 characters long
+	unlimited_length_text TEXT, --unlimited length, best practice if you don't need to limit your characters.
+	
+	--ben will show date and timestamp
+	
+);
+
+--This is NOT all the datatypes we have... There are so many
+--But most of the time, data will just be numbers, text, and maybe times or booleans
+
+
+
+
+
 
 
 
