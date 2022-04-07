@@ -54,8 +54,10 @@ CREATE TABLE datatypes (
 	variable_length_text varchar(15), --text field, we gave it 15 so it can be between 0-15 characters long
 	unlimited_length_text TEXT, --unlimited length, best practice if you don't need to limit your characters.
 	
-	--ben will show date and timestamp
+	"date" date, --YYYY-MM-DD
+	"timestamp" timestamp --YYYY-MM-DD HH-MM-SS
 	
+	--because timestamp is the last column, we don't put a comma
 );
 
 --This is NOT all the datatypes we have... There are so many
