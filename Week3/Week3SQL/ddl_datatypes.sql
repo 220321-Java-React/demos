@@ -1,0 +1,2 @@
+--To create a new schema, we right clicked the schemas folder, create new schema, and named it ddl_datatypes
+--Then, to create this file, we right clicked our schema -> SQL Editor -> Open SQL Script 
