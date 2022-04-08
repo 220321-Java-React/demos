@@ -101,9 +101,13 @@ SELECT * FROM pets WHERE species IN ('Axolotl', 'Liger'); --checks if the values
 --pets who aren't axoltls or liger
 SELECT * FROM pets WHERE species NOT IN ('Axolotl', 'Liger');
 
---Also important is the ORDER BY clause, which lets us return data in some order\
+--Also important is the ORDER BY clause, which lets us return data in some order
 
+SELECT * FROM pets ORDER BY age; --numerical order ascending
 
+SELECT * FROM pets ORDER BY species DESC; --alphabetical order descending
+
+SELECT * FROM pets ORDER BY age, species; --if the age is the same, then those matching columns are ordered by species
 
 ----------------------------------------------------------------------------------------
 
