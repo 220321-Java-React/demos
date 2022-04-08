@@ -39,14 +39,42 @@ DROP TABLE pets;
 
 --DML-------------------------------------------------------------------------------------------------------------
 
+--Now, let's use some Data Manipulation Language (DML): Select, Insert, Update, Delete
 
+--INSERT some data into the owners table, and the pets table
 
+--in INSERT statements, we specify what table and what column we're inserting data into
+--and then, we can specify one or many records to insert
+--we need to surround each unique record with ('parenthesis')
+INSERT INTO owners (owner_name) 
+VALUES ('You'), ('Jeremy'), ('Perry'), ('Rakan');
 
+--we can use SELECT to view the data in the table
 
-
-
+--I want to return all the owners records that we just inserted
+SELECT * FROM owners; --we use * to select every column from the records (as opposed to selecting only certain columns)
 
 --Ben will try to violate some of these constraints when we insert data
+
+--Now I want to insert some pets
+INSERT INTO pets (species, age, owner_id_fk)
+VALUES ('Platypus', 10, 2), ('Pangolin', 7, 1), 
+	   ('Liger', 18, 3), ('Axolotl', 2, 2);
+
+SELECT * FROM pets;
+
+--Notice how every pet needs an owner_id_fk, but an owner doesn't NEED to have a pet associated with them.
+--This is by design. the pets table has a column that depends on the owners, but the owners don't have any pet column.
+--This is a one-to-many relationship! (more on cardinalty later)
+--In this case, one owner can have many (or zero pets). Pets can only have one owner, and they MUST have one owner.
+
+--we can also SELECT data from specific columns instead of all columns
+
+SELECT owner_name FROM owners; --this only select the names, not the ids
+
+SELECT species, age FROM pets; --this only selects the species and age from pets.
+
+--The WHERE Clause---------------------------------------------------------------------
 
 
 
