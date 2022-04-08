@@ -103,22 +103,34 @@ SELECT * FROM pets WHERE species NOT IN ('Axolotl', 'Liger');
 
 --Also important is the ORDER BY clause, which lets us return data in some order
 
-SELECT * FROM pets ORDER BY age; --numerical order ascending
+SELECT * FROM pets ORDER BY; --numerical order ascending
 
 SELECT * FROM pets ORDER BY species DESC; --alphabetical order descending
 
 SELECT * FROM pets ORDER BY age, species; --if the age is the same, then those matching columns are ordered by species
 
+SELECT * FROM pets ORDER BY random(); --Thanks Terrell, turns out we have a random() function in PostgreSQL 
+
 ----------------------------------------------------------------------------------------
 
---UPDATE
+--we can also UPDATE values in our tables
+--Be Careful!! You should ALWAYS use a WHERE clause, or every single row in the table will be updated
 
---DELETE
+--This will update Platypus's age to 11
+UPDATE pets SET age = 11 WHERE pet_id = 1;
 
+SELECT * FROM pets; --just to show that the age has changed. Happy birthday!!
 
+--increment every pet's age by 1
+UPDATE pets SET age = age + 1;
 
+SELECT * FROM pets; --happy birthday everyone!!
 
+--We can DELETE rows too. I don't delete stuff often... when you persist (save) data, it's usually there to stay. 
 
+--like with update, you should always specify a WHERE clause, or else all your data will be deleted
+DELETE FROM pets WHERE age > 15;
 
+SELECT * FROM pets; --Goodbye Liger! Good luck in the real world.
 
 
