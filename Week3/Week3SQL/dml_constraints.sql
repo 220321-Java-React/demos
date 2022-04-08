@@ -23,6 +23,34 @@ CREATE TABLE pets(
 	--THIS IS HOW WE ESTABLISH RELATIONSHIPS BETWEEN OUR TABLES OF DATA 
 );
 
+--You want to create the tables that other tables depend on FIRST
+--Notice how we can't create a pets table if the owners table doesn't exist first (the foreign key depends on it)
+
+DROP TABLE owners;
+
+--we can't drop the owners table, it's a problem because the pets table depends on it
+
+--we COULD drop (or update) the owners table witht the CASCADE keyword
+
+DROP TABLE owners CASCADE; --this CASCADEs the changes to all dependent tables. the changes cascade over
+DROP TABLE pets;
+
+--you could also just drop the dependent tables first, then the table you want to drop, then recreate them all
+
+--DML-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
 
 
 --Ben will try to violate some of these constraints when we insert data
+
+
+
+
+
+
+
