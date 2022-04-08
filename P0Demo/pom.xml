@@ -10,7 +10,6 @@
   </properties>
   
   <dependencies>
-
   	<!-- This is our PostrgeSQL dependency, which we need in order to connect to our database -->
 	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 	<dependency>
