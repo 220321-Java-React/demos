@@ -1,14 +1,24 @@
 package com.revature;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.revature.models.Menu;
+import com.revature.utils.ConnectionUtil;
 
 public class Launcher {
 
 	public static void main(String[] args) {
 		
-		//our main method will only have 2 lines of code...
+		//In this try/catch, we're just testing whether our Connection (from the ConnectionUtil Class) is successful
+		//remember - the getConnection() method will return a Connection Object if you connect successfully
+		try(Connection conn = ConnectionUtil.getConnection()){
+			System.out.println("CONNECTION SUCCESSFUL :)");
+		} catch (SQLException e) { //if creating this connection fails... catch the exception and print the stack trace
+			System.out.println("connection failed... :(");
+			e.printStackTrace();
+		}
 		
 		//Instantiate our Menu object
 		Menu menu = new Menu();

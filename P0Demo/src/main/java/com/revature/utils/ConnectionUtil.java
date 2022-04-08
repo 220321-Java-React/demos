@@ -28,7 +28,7 @@ public class ConnectionUtil {
 		//the schema name at the end of this url String is whatever you named the schema you want to connect to
 		String url = "jdbc:postgresql://localhost:5432/postgres?currentSchema=krusty_krab";
 		String username = "postgres";
-		String password = "ben will reveal his embarassing password";
+		String password = "Sparky2014!!";
 		
 		//This return statement is what returns out actual database Connection object
 		//Note how this getConnection() method has a return type of Connection
