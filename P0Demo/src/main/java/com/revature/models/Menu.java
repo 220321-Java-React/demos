@@ -36,6 +36,7 @@ public class Menu {
 			System.out.println("1: get greeted");
 			System.out.println("2: exit the application");
 			System.out.println("3: show all employees");
+			System.out.println("4: show all roles");
 			
 			
 			//parse the user's input after they choose option, and put it in a int variable
@@ -72,6 +73,12 @@ public class Menu {
 				});
 				
 				break;
+			}
+			
+			case 4: {
+				
+				//to be implemented...
+				
 			}
 			
 			default: {
