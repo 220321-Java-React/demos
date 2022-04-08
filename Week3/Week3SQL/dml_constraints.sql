@@ -76,6 +76,42 @@ SELECT species, age FROM pets; --this only selects the species and age from pets
 
 --The WHERE Clause---------------------------------------------------------------------
 
+--all pets who are Pangolins (=)
+SELECT * FROM pets WHERE species = 'Pangolin';
+
+--all pets who are not pangolins (!=)
+SELECT * FROM pets WHERE species != 'Pangolin';
+
+--pets younger than 12 (<)
+SELECT * FROM pets WHERE age < 12;
+
+--pets whose species names start with P (like) (%)
+SELECT * FROM pets WHERE species LIKE 'P%';
+
+--pets with L somewhere in the middle of their species name
+SELECT * FROM pets WHERE species LIKE '%l%';
+
+--pets whose ages are between 10 and 20 (between)
+SELECT * FROM pets WHERE age BETWEEN 10 AND 20;
+
+--pets whose species are axolotl or liger (or) (in)
+SELECT * FROM pets WHERE species = 'Axolotl' OR species = 'Liger'; --(expression) or (expression) or etc...
+SELECT * FROM pets WHERE species IN ('Axolotl', 'Liger'); --checks if the values are within an Array of values
+
+--pets who aren't axoltls or liger
+SELECT * FROM pets WHERE species NOT IN ('Axolotl', 'Liger');
+
+--Also important is the ORDER BY clause, which lets us return data in some order\
+
+
+
+----------------------------------------------------------------------------------------
+
+--UPDATE
+
+--DELETE
+
+
 
 
 
