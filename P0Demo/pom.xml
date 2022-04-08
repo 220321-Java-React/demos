@@ -9,7 +9,17 @@
   	<maven.compiler.target>1.8</maven.compiler.target>
   </properties>
   
-  <!-- Dependencies like JUnit would go here -->
+  <dependencies>
+
+  	<!-- This is our PostrgeSQL dependency, which we need in order to connect to our database -->
+	<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+	<dependency>
+	    <groupId>org.postgresql</groupId>
+	    <artifactId>postgresql</artifactId>
+	    <version>42.3.3</version>
+	</dependency>
+ 
+  </dependencies>
   
   
 </project>

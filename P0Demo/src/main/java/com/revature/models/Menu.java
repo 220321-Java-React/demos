@@ -68,7 +68,7 @@ public class Menu {
 					System.out.println(employee.getFirst_name());
 					System.out.println(employee.getLast_name());
 					System.out.println("----------------------");
-					//Ben won't forget to show emplyoee.getRole()
+					//Ben won't forget to show employee.getRole()
 				});
 				
 				break;
