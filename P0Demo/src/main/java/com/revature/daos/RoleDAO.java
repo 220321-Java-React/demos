@@ -58,8 +58,10 @@ public class RoleDAO {
 			e.printStackTrace(); //this method is what prints an error message if something goes wrong
 		}
 		
+		return null; //we add this after the try/catch block so Java won't yell at us
+		//(Since there's no guarantee that the try block will run and return our ArrayList)
 		
-		
-	}
+	}//end of getRoles
 	
-}
+	
+}//end of the Class
