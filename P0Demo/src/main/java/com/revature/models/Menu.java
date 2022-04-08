@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.revature.daos.EmployeeDAO;
+import com.revature.daos.RoleDAO;
 
 //This Menu Class will have a method that displays a menu to the user that they can interact with: displayMenu()
 //Through this menu, the user can give inputs that will interact with the database
@@ -11,6 +12,8 @@ public class Menu {
 	
 	//instantiating an EmployeeDAO object so that we can use it's methods
 	EmployeeDAO eDAO = new EmployeeDAO();
+	//instantiating a RoleDAO object so that we can use its methods
+	RoleDAO rDAO = new RoleDAO();
 
 	//All of the menu display options and control flow are contained within this method
 	public void displayMenu() {
@@ -77,8 +80,15 @@ public class Menu {
 			
 			case 4: {
 				
-				//to be implemented...
+				//get the ArrayList of roles from the roleDAO
+				ArrayList<Role> roles = rDAO.getRoles();
 				
+				//enhanced for loop to print out our role data one by one
+				for(Role role : roles) {
+					System.out.println(role);
+				}
+				
+				break;
 			}
 			
 			default: {
