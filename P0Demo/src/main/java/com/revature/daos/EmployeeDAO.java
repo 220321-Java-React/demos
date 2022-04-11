@@ -89,7 +89,27 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 
 	@Override
 	public void removeEmployee(int id) {
-		// TODO Auto-generated method stub
+		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//SQL String that we want to send to the DB
+			String sql = "delete from employees where employee_id = ?;";
+			
+			//instantiate our PreparedStatement to fill in the variable
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			ps.setInt(1, id);
+			
+			//ps.executeUpdate() to send our delete to the DB
+			ps.executeUpdate();
+			
+			//let the user know that the dreams of their former employee have been crushed
+			System.out.println("Get outta here, employee #" + id);
+			
+		} catch (SQLException e) {
+			System.out.println("YOU CAN'T FIRE ME MY FATHER WILL SUE");
+			e.printStackTrace();
+		}
 		
 	}
 	
