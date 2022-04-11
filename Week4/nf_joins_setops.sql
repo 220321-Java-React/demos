@@ -125,7 +125,11 @@ SELECT * FROM avengers LEFT OUTER JOIN homes ON home_id = home_base_id_fk;
 --return everything in the right table, and matching records in the left table
 SELECT * FROM avengers RIGHT OUTER JOIN homes ON home_id = home_base_id_fk;
 
+--Joins are how we make our select statement include more data (spanning multiple tables)
+--we can select * from avengers, but that only gives us the id of their home base
+--what if we want each avenger and all the data of the home base they live at? better use a join!
 
+--(Set Operations)-----------------------------------------------------------------------------
 
 
 
