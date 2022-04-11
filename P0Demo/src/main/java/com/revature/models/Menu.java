@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import com.revature.daos.EmployeeDAO;
 import com.revature.daos.RoleDAO;
+import com.revature.daos.UserDAO;
 
 //This Menu Class will have a method that displays a menu to the user that they can interact with: displayMenu()
 //Through this menu, the user can give inputs that will interact with the database
@@ -14,10 +15,14 @@ public class Menu {
 	EmployeeDAO eDAO = new EmployeeDAO();
 	//instantiating a RoleDAO object so that we can use its methods
 	RoleDAO rDAO = new RoleDAO();
+	//instantiating a UserDAO object so that we can use its method
+	UserDAO uDAO = new UserDAO();
+	
 
 	//All of the menu display options and control flow are contained within this method
 	public void displayMenu() {
 		
+		boolean displayLogin = true; //we're going to use this to toggle whether the user can use the application or not
 		boolean displayMenu = true; //we're going to use this to toggle whether the menu continues after user input
 		Scanner scan = new Scanner(System.in); //Scanner object to parse (read) user input
 		
@@ -25,6 +30,31 @@ public class Menu {
 		System.out.println("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*");
 		System.out.println("WELCOME to the Krusty Krab Employee Management System");
 		System.out.println("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*");
+		
+		System.out.println("Hello stranger... please log in to view the rest of the application.");
+		
+		//display the login prompt, and not let the user access the rest of the application until they log in
+		while(displayLogin) {
+			
+			System.out.println("USERNAME:");
+			
+			String username = scan.nextLine();
+			
+			System.out.println("PASSWORD:");
+			
+			String password = scan.nextLine();
+			
+			//control flow based on whether the user provided accurate login credentials
+			if(uDAO.login(username, password)) {
+				System.out.println("Login Successful! Welcome.");
+				displayLogin = false;
+				break;
+			}
+			
+			System.out.println("LOGIN FAILED! TRY AGAIN.");
+			
+		}
+		
 		
 		//display the menu as long as the displayMenu boolean is true
 		while(displayMenu) {
@@ -41,6 +71,7 @@ public class Menu {
 			System.out.println("3: show all employees");
 			System.out.println("4: show all roles");
 			System.out.println("5: get role by ID");
+			System.out.println("6: update role salary");
 			
 			
 			//parse the user's input after they choose option, and put it in a int variable
@@ -107,6 +138,24 @@ public class Menu {
 				
 				//simply print out our new role object
 				System.out.println(role);
+				
+				break;
+			}
+			
+			case 6: {
+				
+				System.out.println("Which role would you like to change?");
+				
+				//take in the user's input for the role they want to change
+				String titleInput = scan.nextLine();
+				
+				System.out.println("What is the new salary?");
+				
+				//take in the user's input for the new salary
+				int salaryInput = scan.nextInt();
+				scan.nextLine();
+				
+				rDAO.updateRoleSalary(titleInput, salaryInput);
 				
 				break;
 			}
