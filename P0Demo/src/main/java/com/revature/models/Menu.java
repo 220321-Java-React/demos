@@ -73,6 +73,7 @@ public class Menu {
 			System.out.println("4: show all roles");
 			System.out.println("5: get role by ID");
 			System.out.println("6: update role salary");
+			System.out.println("7: add employee");
 			
 			
 			//parse the user's input after they choose option, and put it in a int variable
@@ -159,6 +160,31 @@ public class Menu {
 				rDAO.updateRoleSalary(titleInput, salaryInput);
 				
 				break;
+			}
+			
+			case 7: {
+				
+				//take user input for employee first_name and last_name
+				System.out.println("Enter Employee First Name");
+				String fName = scan.nextLine();
+				
+				System.out.println("Enter Employee Last Name");
+				String lName = scan.nextLine();
+				
+				//take user input for the employee's role
+				//not the prettiest design here, but otherwise the user doesn't know the different roles
+				System.out.println("Enter Employee Role");
+				System.out.println("Manager = 1 | Fry Cook = 2 | Cashier = 3 | Marketing = 4");
+				
+				int roleId = scan.nextInt();
+				//Ben is confused on why we don't need nextLine() in these cases he'll come back to this comment
+				
+				Employee emp = new Employee(fName, lName, null);
+				//why null for the role object?? We're going to use the user-inputted role_id instead
+				//this agrees better with the DB, since the User has role_id_fk, not a Role object
+				
+				eDAO.insertEmployee(emp, roleId);
+				
 			}
 			
 			default: {
