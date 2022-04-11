@@ -74,6 +74,7 @@ public class Menu {
 			System.out.println("5: get role by ID");
 			System.out.println("6: update role salary");
 			System.out.println("7: add employee");
+			System.out.println("8: remove employee");
 			
 			
 			//parse the user's input after they choose option, and put it in a int variable
@@ -184,6 +185,17 @@ public class Menu {
 				//this agrees better with the DB, since the User has role_id_fk, not a Role object
 				
 				eDAO.insertEmployee(emp, roleId);
+				
+				break;
+			}
+			
+			case 8: {
+				
+				System.out.println("Power trip huh? Enter the ID of the employee you want to delete");
+				
+				int idInput = scan.nextInt();
+				
+				eDAO.removeEmployee(idInput);
 				
 				break;
 			}
