@@ -97,9 +97,12 @@ SELECT * FROM avengers;
 
 --Remember, joins are necessary if we want to SELECT data from multiple tables. Multi-table queries!
 
---one more INSERT statement to better understand left/right joins 
+--one more INSERT statement for each table to better understand left/right joins 
 INSERT INTO avengers (hero_name, hero_power, first_name, last_name)
 VALUES ('Hancock', 'he tries his best', 'Will', 'Smith');
+
+INSERT INTO homes (home_base, street_address)
+VALUES ('Some Pizza Joint', '456 MammaMia way');
 
 --note the keywords:
 --we specify the type of join, and what table and column we're joining ON.
@@ -115,11 +118,11 @@ SELECT * FROM avengers INNER JOIN homes ON home_id = home_base_id_fk;
 SELECT * FROM avengers FULL OUTER JOIN homes ON home_id = home_base_id_fk;
 
 --LEFT OUTER JOIN
---return everything in the left table, and matching columns in the right table
+--return everything in the left table, and matching records in the right table
 SELECT * FROM avengers LEFT OUTER JOIN homes ON home_id = home_base_id_fk;
 
 --RIGHT OUTER JOIN
---return everything in the right table, and matching columns in the left table
+--return everything in the right table, and matching records in the left table
 SELECT * FROM avengers RIGHT OUTER JOIN homes ON home_id = home_base_id_fk;
 
 
