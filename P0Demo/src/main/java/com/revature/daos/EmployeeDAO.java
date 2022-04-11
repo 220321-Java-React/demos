@@ -1,9 +1,13 @@
 package com.revature.daos;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.revature.models.Employee;
 import com.revature.models.Role;
+import com.revature.utils.ConnectionUtil;
 
 //DAO stands for Data Access Object - it's the layer of classes that directly interact with our database
 //EVENTUALLY (not yet) we'll have a bunch of methods here that send SQL statements to our database
@@ -34,8 +38,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		
 	}
 
-	//Ben will flesh out these methods whenever we get back to P0 demo, probably when we actually know database comms 
-
+	//Ben is leaving this unimplemented... Check RoleDAO for findById functionality
 	@Override
 	public Employee getEmployeeById(int id) {
 		// TODO Auto-generated method stub
@@ -51,10 +54,37 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 
 
 	@Override
-	public void insertEmployee(Employee employee) {
-		// TODO Auto-generated method stub
+	public void insertEmployee(Employee employee, int role_id) {
+	
+		try(Connection conn = ConnectionUtil.getConnection()){
 		
-	}
+		//First we need our SQL String that represents the INSERT statement we'll send to the DB
+		//Again, there are variables in this statement, that we can fill out thanks to PreparedStatement
+		String sql = "insert into employees (first_name, last_name, role_id)"
+				+ "values (?, ?, ?);";
+				
+		//Instantiate a PreparedStatement to fill in the variables of our initial SQL String
+		PreparedStatement ps = conn.prepareStatement(sql);
+		
+		//fill in the values of our variables using ps.setXYZ()
+		ps.setString(1, employee.getFirst_name());
+		ps.setString(2, employee.getLast_name());
+		ps.setInt(3, role_id); 
+		//note how the DB role_id is an int, but in Java, Employees have a Role OBJECT
+		//this is my workaround of choice... have the user input the id of the desired role when inserting the user data
+		
+		//Execute the Update!! (the method is called executeUpdate(), but it's for INSERTS, UPDATES, and DELETES)
+		ps.executeQuery();
+		
+		//Tell the user the insert was successful
+		System.out.println("Employee " + employee.getFirst_name() + " added. Welcome aboard agagagagaga!");
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong inserting Employee!");
+			e.printStackTrace();
+		}
+		
+	} 
 
 
 	@Override

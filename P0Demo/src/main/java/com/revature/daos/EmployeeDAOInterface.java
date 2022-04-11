@@ -28,7 +28,7 @@ public interface EmployeeDAOInterface {
 	ArrayList<Employee> getEmployeesByRole(String title);
 	
 	//This method will take in an employee object, and insert it into the database
-	void insertEmployee(Employee employee);
+	void insertEmployee(Employee employee, int role_id);
 	
 	//This method will take in an int, and remove the employee whose id matches the int
 	void removeEmployee(int id);

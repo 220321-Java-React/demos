@@ -22,7 +22,7 @@ public class Menu {
 	//All of the menu display options and control flow are contained within this method
 	public void displayMenu() {
 		
-		boolean displayLogin = true; //we're going to use this to toggle whether the user can use the application or not
+		boolean displayLogin = true;//we're going to use this to toggle whether the user can use the application or not
 		boolean displayMenu = true; //we're going to use this to toggle whether the menu continues after user input
 		Scanner scan = new Scanner(System.in); //Scanner object to parse (read) user input
 		
@@ -32,6 +32,7 @@ public class Menu {
 		System.out.println("*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*");
 		
 		System.out.println("Hello stranger... please log in to view the rest of the application.");
+		
 		
 		//display the login prompt, and not let the user access the rest of the application until they log in
 		while(displayLogin) {
