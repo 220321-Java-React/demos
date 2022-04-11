@@ -61,7 +61,6 @@ public class RoleDAO {
 		return null; //we add this after the try/catch block so Java won't yell at us
 		//(Since there's no guarantee that the try block will run and return our ArrayList)
 		
-	}//end of getRoles
-	
+	}//end of getRoles()
 	
 }//end of the Class
