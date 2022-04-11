@@ -95,4 +95,37 @@ SELECT * FROM avengers;
 
 --(Joins)-----------------------------------------------------------------------------------------
 
+--Remember, joins are necessary if we want to SELECT data from multiple tables. Multi-table queries!
+
+--one more INSERT statement to better understand left/right joins 
+INSERT INTO avengers (hero_name, hero_power, first_name, last_name)
+VALUES ('Hancock', 'he tries his best', 'Will', 'Smith');
+
+--note the keywords:
+--we specify the type of join, and what table and column we're joining ON.
+
+--INNER JOIN
+--returns all records with matching data (from the PK/FK) in both tables
+SELECT * FROM avengers INNER JOIN homes ON home_id = home_base_id_fk;
+--"Select every piece of data from avengers and homes where the home_id match"
+--Notice we don't get Hancock, because his record has no home_base_id_fk
+
+--FULL OUTER JOIN
+--returns all record from both tables no matter what
+SELECT * FROM avengers FULL OUTER JOIN homes ON home_id = home_base_id_fk;
+
+--LEFT OUTER JOIN
+--return everything in the left table, and matching columns in the right table
+SELECT * FROM avengers LEFT OUTER JOIN homes ON home_id = home_base_id_fk;
+
+--RIGHT OUTER JOIN
+--return everything in the right table, and matching columns in the left table
+SELECT * FROM avengers RIGHT OUTER JOIN homes ON home_id = home_base_id_fk;
+
+
+
+
+
+
+
 	  
