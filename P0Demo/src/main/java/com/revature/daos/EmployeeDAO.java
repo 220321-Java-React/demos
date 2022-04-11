@@ -60,7 +60,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		
 		//First we need our SQL String that represents the INSERT statement we'll send to the DB
 		//Again, there are variables in this statement, that we can fill out thanks to PreparedStatement
-		String sql = "insert into employees (first_name, last_name, role_id)"
+		String sql = "insert into employees (first_name, last_name, role_id_fk)"
 				+ "values (?, ?, ?);";
 				
 		//Instantiate a PreparedStatement to fill in the variables of our initial SQL String
@@ -74,7 +74,7 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		//this is my workaround of choice... have the user input the id of the desired role when inserting the user data
 		
 		//Execute the Update!! (the method is called executeUpdate(), but it's for INSERTS, UPDATES, and DELETES)
-		ps.executeQuery();
+		ps.executeUpdate();
 		
 		//Tell the user the insert was successful
 		System.out.println("Employee " + employee.getFirst_name() + " added. Welcome aboard agagagagaga!");

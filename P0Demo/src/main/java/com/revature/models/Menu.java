@@ -185,6 +185,7 @@ public class Menu {
 				
 				eDAO.insertEmployee(emp, roleId);
 				
+				break;
 			}
 			
 			default: {
