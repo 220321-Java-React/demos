@@ -92,13 +92,17 @@ public class RoleDAO implements RoleDAOInterface{
 			
 			//the above code gets our data, and now we need to populate that data into a Role object
 			//we can return the new role object right away without assigning it to a variable
+			
+			while(rs.next()) {
+				
 			return new Role(
 					rs.getInt("role_id"),
 					rs.getString("role_title"),
 					rs.getInt("role_salary")
 					);
-					
-			//note how we don't need a while loop/ArrayList here, since we're only returning one object
+				
+			}	
+			//note how we don't need an ArrayList here, since we're only returning one object
 			
 		} catch (SQLException e) {
 			System.out.println("Something went wrong fetching this data!!");
@@ -110,7 +114,29 @@ public class RoleDAO implements RoleDAOInterface{
 
 	@Override
 	public void updateRoleSalary(String title, int salary) {
-		// TODO Auto-generated method stub
+	
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//write out our SQL UPDATE command
+			String sql = "update roles set role_salary = ? where role_title = ?";
+			
+			//create our PreparedStatement
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			//input the appropriate values into our PreparedStatement
+			ps.setInt(1, salary); //update the first ? with the int salary from the method arguments
+			ps.setString(2, title); //update the second ? with the String title from the method arguments
+			
+			//execute the update!!
+			ps.executeUpdate();
+			
+			//tell the user that the update was successful
+			System.out.println(title + " salary has been updated to: " + salary);
+			
+		} catch (SQLException e) {
+			System.out.println("Couldn't update :(");
+			e.printStackTrace();
+		}
 		
 	}
 	

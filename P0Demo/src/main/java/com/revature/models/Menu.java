@@ -40,6 +40,7 @@ public class Menu {
 			System.out.println("2: exit the application");
 			System.out.println("3: show all employees");
 			System.out.println("4: show all roles");
+			System.out.println("5: get role by ID");
 			
 			
 			//parse the user's input after they choose option, and put it in a int variable
@@ -87,6 +88,25 @@ public class Menu {
 				for(Role role : roles) {
 					System.out.println(role);
 				}
+				
+				break;
+			}
+			
+			case 5: {
+				
+				System.out.println("What Role ID would you like to search?");
+				
+				int idInput = scan.nextInt(); //we get the user's input for ID
+				scan.nextLine(); //we still need nextLine() to move to the next line
+				
+				//what if the user enters a String? the program will crash
+				//it's up to you to polish your P0 and add some foolproofing to cases like this
+				
+				//creating a new Role object, using the getRoleById method in the Role DAO
+				Role role = rDAO.getRoleById(idInput);
+				
+				//simply print out our new role object
+				System.out.println(role);
 				
 				break;
 			}
