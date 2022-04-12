@@ -81,17 +81,61 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		
 	}
 
-	//Ben is leaving this unimplemented... Check RoleDAO for findById functionality
-	@Override
-	public Employee getEmployeeById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-
+	//We want a method that can take in a Role title, and return all Employees with that Role
 	@Override
 	public ArrayList<Employee> getEmployeesByRole(String title) {
-		// TODO Auto-generated method stub
+		
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//We need a SQL String with a JOIN
+			//We need to join employees on roles in order to access the role_title column from the roles table
+			//since I want to get employees by their role title, I need access to the data in both tables
+			String sql = "select * from employees inner join roles "
+					+ "on role_id = role_id_fk where role_title = ?;";
+			
+			//we have a variable in the SQL statement, so we need a PreparedStatement to fill it in
+			PreparedStatement ps = conn.prepareStatement(sql);
+			
+			//now we just need to input the variable value
+			ps.setString(1, title);
+			
+			//Execute the query into a ResultSet object
+			ResultSet rs = ps.executeQuery();
+			
+			//Instantiate an empty ArrayList that we'll fill with the data from the ResultSet
+			ArrayList<Employee> employeeList = new ArrayList<>();
+			
+			//while there are records remaining in the ResultSet...
+			while(rs.next()) {
+				
+				//create new Employee objects based on the data, and fill in the ArrayList
+				Employee e = new Employee(
+						rs.getInt("employee_id"),
+						rs.getString("first_name"),
+						rs.getString("last_name"),
+						null
+						);
+				
+				//get the foreign key from the Employees table to use in our getRoleById() method
+				int roleFK = rs.getInt("role_id_fk");
+				
+				Role r = rDAO.getRoleById(roleFK);
+				
+				//fill in the previously null Role variable in this new Employee object (with the setter!)
+				e.setRole(r);
+				
+				//fill in the employeeList with each while loop until eventually rs.next() == false.
+				employeeList.add(e);
+			}
+			
+			return employeeList;
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong selecting employees by ID");
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
@@ -155,5 +199,16 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		}
 		
 	}
+	
+	
+	
+	
+	//Ben is leaving this unimplemented... Check RoleDAO for findById functionality
+	@Override
+	public Employee getEmployeeById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 }
