@@ -106,8 +106,8 @@ public class Menu {
 					System.out.println(employee.getEmployee_id());
 					System.out.println(employee.getFirst_name());
 					System.out.println(employee.getLast_name());
+					System.out.println(employee.getRole());
 					System.out.println("----------------------");
-					//Ben won't forget to show employee.getRole()
 				});
 				
 				break;

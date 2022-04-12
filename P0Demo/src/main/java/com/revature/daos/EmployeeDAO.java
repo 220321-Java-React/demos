@@ -2,7 +2,9 @@ package com.revature.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.revature.models.Employee;
@@ -16,12 +18,64 @@ import com.revature.utils.ConnectionUtil;
 //PLEASE NOTE OUR ACTUAL DAO WILL LOOK VERY DIFFERENT FROM THIS
 public class EmployeeDAO implements EmployeeDAOInterface{
 
+	//Instantiate a RoleDAO object so that we can use one of it's methods in the getEmployees() method
+	RoleDAO rDAO = new RoleDAO();
 	
 	//This TEMPORARY method will return the employees from the database
 	//In the future, this method body will actually be communicating directly to the database
 	public ArrayList<Employee> getEmployees(){
 		
-		//will fill this out with proper JDBC logic :)
+		try(Connection conn = ConnectionUtil.getConnection()){
+			
+			//a String that will represent our SQL statement
+			String sql = "select * from employees;";
+			
+			//a Statement object to execute our query 
+			Statement s = conn.createStatement();
+			
+			//execute our query into a ResultSet object, which will hold all the data 
+			//executeQuery() is what actually queries the database! Then we put the records into a ResultSet
+			ResultSet rs = s.executeQuery(sql);
+			
+			//Instantiate an ArrayList to put our Employee objects into
+			ArrayList<Employee> employeeList = new ArrayList<>();
+			
+			//use rs.next() in a while loop to create Employee objects and populate our ArrayList with them.
+			//remember, the ResultSet is what's holding our data. We need to turn it into something Java can read (objects)
+			while(rs.next()) {
+				//Create a new Employee object from each record in the ResultSet
+				//we're using the all args constructor of Employee to fill in new Employee objects with DB data
+				Employee e = new Employee(
+						rs.getInt("employee_id"),
+						rs.getString("first_name"),
+						rs.getString("last_name"),
+						null //there is no JDBC method for getRole... we'll add the Role object in below
+						//this is an extra step we have to take because in the DB, the role_id_fk is an int
+						//but we need a Role object here
+						);
+				
+				//we need to get the role of each employee somehow...
+				//we need to use the DAO method for getRoleById from the RoleDAO
+				int roleFK = rs.getInt("role_id_fk");
+				
+				//get a Role object from the RoleDAO
+				Role r = rDAO.getRoleById(roleFK);
+				
+				//use the SETTER of the Employee class to set the Role object to the one we got from the DB above.
+				e.setRole(r);
+				//thanks to this setter, our Employee objects can be FULLY initialized (every variable has a value)
+				
+				//add the fully initialized Employee into the ArrayList
+				employeeList.add(e);
+			}
+			
+			//once the while loop ends (when rs.next() == false), return the ArrayList
+			return employeeList;
+			
+		} catch (SQLException e) {
+			System.out.println("Something went wrong selecting all employees!");
+			e.printStackTrace();
+		}
 		
 		return null;
 		

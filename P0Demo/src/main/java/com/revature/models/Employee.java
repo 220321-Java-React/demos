@@ -79,7 +79,14 @@ public class Employee {
 
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	} 
-	
 	
 }
