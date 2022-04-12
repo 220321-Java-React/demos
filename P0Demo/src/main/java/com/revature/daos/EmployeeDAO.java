@@ -23,6 +23,8 @@ public class EmployeeDAO implements EmployeeDAOInterface{
 		
 		//will fill this out with proper JDBC logic :)
 		
+		return null;
+		
 	}
 
 	//Ben is leaving this unimplemented... Check RoleDAO for findById functionality
