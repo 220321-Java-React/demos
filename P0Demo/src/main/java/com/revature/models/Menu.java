@@ -75,6 +75,7 @@ public class Menu {
 			System.out.println("6: update role salary");
 			System.out.println("7: add employee");
 			System.out.println("8: remove employee");
+			System.out.println("9: select employees by role title");
 			
 			
 			//parse the user's input after they choose option, and put it in a int variable
@@ -196,6 +197,33 @@ public class Menu {
 				int idInput = scan.nextInt();
 				
 				eDAO.removeEmployee(idInput);
+				
+				break;
+			}
+			
+			case 9: {
+				
+				//prompt the user to enter a Role to search for
+				System.out.println("Which Role would you like to search for?");
+				System.out.println("CaSe SeNsItIve!!! E.g. \" Fry Cook \"");
+				
+				//taking the user input
+				String roleInput = scan.nextLine();
+				
+				//make an ArrayList, fill it with the results of the DAO method that gets employees by role title
+				ArrayList<Employee> employeeList = eDAO.getEmployeesByRole(roleInput);
+				
+				//"for every Employee that we'll call "e" in the employeeList", do something
+				for(Employee e : employeeList) {
+					
+					System.out.println("-----------------------");
+					System.out.println(e.getEmployee_id());
+					System.out.println(e.getFirst_name());
+					System.out.println(e.getLast_name());
+					System.out.println(e.getRole());
+					System.out.println("-----------------------");
+					
+				}
 				
 				break;
 			}
