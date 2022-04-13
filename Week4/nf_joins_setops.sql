@@ -90,7 +90,7 @@ VALUES ('Spiderman', 'Webby boi', 'Peter', 'Parker', 1),
 	   ('Doctor Strange', 'got those light zoopy zoop things that do stuff and spells', 'Benedict', 'Cumberbatch', 2);
 
 SELECT * FROM avengers;
-	  
+
 --cool, this database schema is now fully 3NF (which is what we want, and what your P0 databases will be).
 
 --(Joins)-----------------------------------------------------------------------------------------
@@ -131,7 +131,26 @@ SELECT * FROM avengers RIGHT OUTER JOIN homes ON home_id = home_base_id_fk;
 
 --(Set Operations)-----------------------------------------------------------------------------
 
+SELECT * FROM avengers;
 
+--we use set operations to combine MULTIPLE QUERIES
+--don't confuse them with joins, which return data from multiple TABLES
+
+--UNION 
+--All distinct records from the queries, no duplicates
+SELECT home_base_id_fk FROM avengers UNION SELECT home_id FROM homes;
+
+--UNION ALL 
+--All records from the queries including duplicates
+SELECT home_base_id_fk FROM avengers UNION ALL SELECT home_id FROM homes;
+
+--INTERSECT
+--Returns unique rows found in BOTH queries
+SELECT home_base_id_fk FROM avengers INTERSECT SELECT home_id FROM homes;
+
+--EXCEPT 
+--Returns unique rows in the first query that DON'T appear in the second query
+SELECT home_base_id_fk FROM avengers EXCEPT SELECT home_id FROM homes;
 
 
 
