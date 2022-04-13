@@ -145,11 +145,11 @@ SELECT home_base_id_fk FROM avengers UNION SELECT home_id FROM homes;
 SELECT home_base_id_fk FROM avengers UNION ALL SELECT home_id FROM homes;
 
 --INTERSECT
---Returns unique rows found in BOTH queries
+--Returns unique rows (no duplicates) found in BOTH queries
 SELECT home_base_id_fk FROM avengers INTERSECT SELECT home_id FROM homes;
 
 --EXCEPT 
---Returns unique rows in the first query that DON'T appear in the second query
+--Returns unique rows (no duplicates) in the first query that DON'T appear in the second query
 SELECT home_base_id_fk FROM avengers EXCEPT SELECT home_id FROM homes;
 
 
