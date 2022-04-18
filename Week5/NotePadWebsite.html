@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+	<!-- A HTML page is contained within a html root tag
+		The very top of the page contains <!DOCTYPE html> which is used by the browser to understand
+		what type of language is needed
+		The current html is html 5 -->
+	<head>
+		<!-- The head tag is used to contain meta data about the web page
+			It does not contain any visible elements to a web page, that is in the body tag
+			If you place any visible elements in the head it will move it to the body on load-->
+			
+		<!-- Title tag gives the webpage a title on the very top of the webpage tab -->
+		<!-- There are more tags that you can use like meta and links -->
+		<title>Basic HTML</title>
+	</head>
+	<body>
+		<!-- The body tag is used for all the visible elements of a webpage -->
+		<!-- A tag is either <tag>text</tag> where you have an opening tag, the value inside, closing tag
+			or <tag attribute="value"> In which the tag is self closing so you do not need the closing tag
+			-->
+			
+		<!-- An attribute is any values inside the tag angle brackets <tag attribute="value attribute2>
+			You can get attributes that require a value in quotes " " or just the name of the attribute -->
+		<h1 hidden>Hello From Notepad</h1>
+		
+		<!-- Global attributes are ones that can be used for any tag
+			id - Unique id for an element
+			class - group elemenets together
+			if it is not a global attribute then it's most likely unique to that specific type of element -->
+		<h5 id="headingTag">This is a h5 header</h5>
+		<p class="paragraphs">This is my paragraph</p>
+		
+		<!-- <div> and <span> are types non semantic elements, they do not actually change the display of the page
+			and instead are used for us to group things together
+			Semantic elements are read by the browser and displayed in a specific fashion
+			A h1 is a semantic element as there are additional information alongside with it that changes how it is displayed-->
+		<div>
+			<p class="paragraphs">This is a paragraph inside a div</p>
+		</div>
+		
+		<!-- img is a tag that has the src attribute that specifies where the image is located
+			It is a self closing tag so does not need </img>
+			the src value can be either a url, a relative file path (the source path is the current directory), or an absolute file path -->
+			
+		<img src="https://imgs.search.brave.com/bYAWGPxv_mDUhKqkkdACgPf2qqaLDan2p6UyueqgVJo/rs:fit:1200:1200:1/g:ce/aHR0cDovL2ltYWdl/czYuZmFucG9wLmNv/bS9pbWFnZS9waG90/b3MvMzUyMDAwMDAv/RG9nLWRvZ3MtMzUy/NDc3MTktMzcwNi0y/NDgwLmpwZw">
+		<img src="Dog-dogs-35247719-3706-2480.png" alt="A picture of a dog">
+		<img src="C:\Users\Bravo\frontendWorkspace\firstWebsite\Dog-dogs-35247719-3706-2480.png">
+		
+		<!-- The anchor tag <a> has an attribute of href that specifies the url that the tag links towards
+			The tag needs to wrap around another element or text block to allow additional linking ability -->
+			
+		<p>Go to <a href="https://www.google.com">Google</a></p>
+		
+		<!-- This is the table element and within is additional tags that allow more display functionality for the browser
+			thead is is used to define the head value of the columns
+			tr is used to display the table rows
+			th is used only for the header rows
+			tbody is for the data set
+			tr and td is used in these sections to give data for the table -->
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Brian</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Greg</td>
+				</tr>
+				<tr>
+					<td>3</td>
+					<td>Jane</td>
+					
+				</tr>
+			</tbody>
+		</table>
+		
+		<!-- Ordered lists render as 1, 2, 3, etc...-->
+		<ol>
+			<li>First Item</li>
+			<li>Second Item</li>
+			<li>Third Item</li>
+		</ol>
+		
+		<!-- Unordered lists will render as bullet points -->
+		<ul>
+			<li>First Item</li>
+			<li>Second Item</li>
+			<li>Third Item</li>
+		</ul>
+		
+		<!-- Inline elements stay within the line they are written in
+			Block Elements will always create a new line -->
+		
+		<div>The following span is an <span class="highlight">inline element</span>;
+its background has been colored <em>to display </em> both the beginning and end of
+the inline element's influence.</div>
+
+		<br>
+		
+		<!-- If I want to control the lines of display in a text then I have to 
+		use a line break <br> -->
+		<div> This is a section of text 
+		<br>
+		This is another section in a new line </div>
+	</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Form basics</title>
+		<link rel="stylesheet" href="Stylesheets/cssBasics2.css">
+	</head>
+	<body>
+		<!-- The form element is used to get users input in an organized fashion
+			We add specific inputs to the form element to organize the users info
+			in a logical fashion and then submit that to a server to process that
+			information -->
+		
+		<!-- The action attribute specifies a url to send the information to
+			
+			The target attributes specifies how the submit function renders in the window
+				A blank value means a new window is opened
+				By default this is "self" meaning that it opens in the same page as itself
+			
+			The method attribute is the HTTP method relating to how the information is sent
+				GET - user input is in the address bar
+				POST - user input is not in the address bar -->
+				
+		<form action="NotePadWebsite.html" target="blank" method="POST">
+			
+			<!-- We use the input element to specify the type of input the user can input
+				There are various attributes we can add to the input like:
+					type - Specifies the type of input
+					name - Gives the value a name, needed to actually send the data as they
+							are kept in key value pairs. If ignored then submit will not send it
+					placeholder - Gives a hint to the user, will disappear once they start typing
+					required - forces the user to input something otherwise nothing will be sent -->
+			
+			Username: <br> <input id="loginUsername" type="text" name="username" placeholder="USERNAME" required/>
+			Password: <br> <input type="password" name="password"/>
+			<br>
+			Age: <br> <input type="number" min="18" max="9999" required/>
+			
+			<!-- The input type of submit is required inside the form element to submit the inputs of
+				the user together
+				These inputs are rendered as unique buttons that include additional functionality over
+				the default button type which just looks like a button -->
+			<input type="submit" value="Press me"/>
+			<input type="reset" value="RESET"/>
+			<input type="button" value="this is a button"/>
+		</form>
+		
+		<!-- This is a form using the radio button input type, radio buttons only allow one option
+			to be checked at a time
+			This single option functionality only works if the radio buttons are within a form element-->
+			
+		<!-- We use the label tag to give a label to the input instead of just putting in plain text within
+			the form element-->
+		<form>
+			SELECT POKEMON
+			<br>
+			<input type="radio" name="charizard" id="charizard">
+			<label for="charizard">Charizard</label><br>
+			<input type="radio" name="squirtle" id="squirtle">
+			<label for="squirtle">Squirtle</label><br>
+			<input type="radio" name="bulbasaur" id="bulbasaur">
+			<label for="bulbasaur">Bulbasaur</label><br>
+			<input type="submit"/>
+			<input type="reset"/>
+		</form>
+		
+		<!-- This is the checkbox input type, this allows multiple checks in the form -->
+		<form>
+			<b>Select Subjects</b>
+			<br>
+			<input type="checkbox" name="subject" id="math"/>
+			<label for="math">Math</label>
+			<input type="checkbox" name="subject" id="science"/>
+			<label for="science">Science</label>
+			<input type="submit">
+		</form>
+		
+		<!-- This is the select drop down input type
+		
+			We use the select element to specify that all the options inside it are in the same list
+			
+			The option element is used to give the users multiple selects
+			This effectively works like a radio button where only one can be selected at a time 
+			Make sure to include value and the Text option, they are not the same, the value attribute
+			is what will be sent on the address bar when submit is pressed by the user not the Text visible
+			to the user -->
+		<form>
+			<label for="country">Country:</label>
+			<select name="country" id="country">
+				<option value="USA">USA</option>
+				<option value="UK">UK</option>
+			</select>
+			<input type="submit"/>
+		</form>
+	</body>
+</html>
