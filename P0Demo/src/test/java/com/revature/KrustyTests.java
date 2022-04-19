@@ -19,7 +19,7 @@ import com.revature.daos.RoleDAO;
 import com.revature.daos.UserDAO;
 import com.revature.models.Employee;
 
-public class EmployeeDAOTests {
+public class KrustyTests {
 
 	UserDAO ud = new UserDAO();
 	EmployeeDAO ed = new EmployeeDAO();
