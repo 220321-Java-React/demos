@@ -1,5 +1,6 @@
 package com.revature.daos;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.revature.models.Employee;
@@ -22,7 +23,7 @@ public interface EmployeeDAOInterface {
 	ArrayList<Employee> getEmployees();
 	
 	//This method will return an employee which we'll get by their id
-	Employee getEmployeeById(int id);
+	Employee getEmployeeById(int id) ;
 	
 	//This method will return every employee of a given role (we'll use a string here, to search by role title)
 	ArrayList<Employee> getEmployeesByRole(String title);

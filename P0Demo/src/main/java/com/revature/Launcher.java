@@ -28,8 +28,6 @@ public class Launcher {
 		
 		//really clean main method! The power of abstraction - 
 		//all the complicated menu code is in the displayMenu() method (abstracted away from us)
-		
-		
 
 		
 	}
