@@ -36,5 +36,33 @@ VALUES ('Eugene', 'Krabs', 1),
 SELECT * FROM employees;
 
 
+create table project(
+	project_id serial primary key,
+	project_name text,
+	due_date text,
+	user_id_fk int references "user" (user_id)
+);
+added p0."user" may need explicitly state "schema"
 
+create table "user"(
+	user_id serial primary key,
+	email text not null,
+	"password" text not null,
+	f_name text,
+	l_name text
+);
+ 
+
+insert into "user" (user_id, email, "password", f_name, l_name)
+values (default, 'carol@rev.net', 'carol', 'Carol', 'Reems'),  
+	   (default, 'benjamin@rev.net', 'ben', 'Benjamin', 'pezzo'),
+	   (default, 'terrell@rev.net', 'terrell', 'Terrell', 'Bank');
+
+      
+insert into project (project_name, due_date, user_id_fk)
+values ('Vacations', '04/10/2022', 2),
+       ('Project Zero Demo', '04/08/2022', 3 ),
+       ('Tiny SPMS', '04/21/2022', 2),
+       ('Big SPMS', '06/14/2022', 2),
+       ('Big SPMS', '06/14/2022', 2);
 
