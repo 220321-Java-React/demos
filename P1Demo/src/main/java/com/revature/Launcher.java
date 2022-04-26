@@ -39,7 +39,7 @@ public class Launcher {
 					config -> {
 						config.enableCorsForAllOrigins(); //this allows us to process JS requests from anywhere
 					}
-				).start(3000);
+				).start(3000); //we need this to start our application on port 3000
 		
 		//We need to make some endpoint handlers, which will take in requests and send them where they need to go
 		//Javalin endpoint handlers are like the traffic cop to your server. They take traffic and direct it.
