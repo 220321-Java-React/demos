@@ -21,6 +21,8 @@
 
 <body>
     
+    <!--A div with a class of "container" makes it so that bootstrap will be applied to this div-->
+    <!-- Everything within this div will get styled with the appropriate bootstrap styling-->
     <div class="container">
 
         <h3>Welcome to the Krusty Krab!</h3>
@@ -32,9 +34,8 @@
         <!-- I want a table of employee information which we'll SELECT from the DB -->
 
         <div id="table-row" class="row">
-
-            <table id="krustyTable" class="table table-dark table-bordered table-hover">
-                <thead scope="row">
+            <table id="krustyTable" class="table table-dark table-bordered table-hover table-striped">
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>First Name</th>
@@ -43,10 +44,14 @@
                     </tr>
                 </thead>
 
+                <tbody id="employeeBody">
+                    <!-- We'll leave the table body blank - it will be filled with data by our JS-->
+                </tbody>
 
             </table>
-
         </div>
+
+        <button id="getEmployeeButton" class="btn btn-danger">Show Employees</button>
 
     </div>
 
