@@ -12,10 +12,6 @@ import com.revature.models.Role;
 import com.revature.utils.ConnectionUtil;
 
 //DAO stands for Data Access Object - it's the layer of classes that directly interact with our database
-//EVENTUALLY (not yet) we'll have a bunch of methods here that send SQL statements to our database
-//In order to insert/manipulate/delete/view the data in the database
-
-//PLEASE NOTE OUR ACTUAL DAO WILL LOOK VERY DIFFERENT FROM THIS
 public class EmployeeDAO implements EmployeeDAOInterface{
 
 	//Instantiate a RoleDAO object so that we can use one of it's methods in the getEmployees() method
