@@ -2,7 +2,7 @@ const url = "http://localhost:3000"; //putting our base URL in a variable for cl
 //eventually, we'll use this in fetch requests and make calls to our server by appending endpoints
 
 //add an event listener to give our button functionality (using DOM selection)
-//"If the getEmployeeButton gets clicked, execute the getEmployees function"
+//"When the getEmployeeButton gets clicked, execute the getEmployees function"
 document.getElementById("getEmployeeButton").addEventListener("click", getEmployees);
 
 
