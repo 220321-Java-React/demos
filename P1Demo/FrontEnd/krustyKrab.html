@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<br>
     
     <!--A div with a class of "container" makes it so that bootstrap will be applied to this div-->
     <!-- Everything within this div will get styled with the appropriate bootstrap styling-->
@@ -27,7 +27,17 @@
 
         <h3>Welcome to the Krusty Krab!</h3>
 
-        <!-- See if we need line breaks... -->
+        <div id="loginRow" class="row">
+            <h3>Please Enter Your Login Credentials</h3>
+            <input id="username" placeholder="Username"/>
+            <input id="password" type="password" placeholder="Password"/>
+            <button id="loginButton" class="btn btn-primary col-sm-3">Login</button>
+        <!-- col-sm-3? this will make the login button take up 25% of the row -->
+        <!-- col-sm-12 for instance would make the button take up the entire row -->
+        </div>
+
+       <br>
+       <br>
 
         <!-- With our CLI in P0, we were able to populate our DB data in the Java console -->
         <!-- But now, we have a webpage and we need a way to store the data we gather -->
