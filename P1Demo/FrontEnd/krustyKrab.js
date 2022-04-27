@@ -15,7 +15,7 @@ async function getEmployees() {
 
     //we will send a fetch request to get out employee data
     //by default, fetch requests send GET requests (see how to send others like POST below)
-    let response = await fetch(url + "/employees");
+    let response = await fetch(url + "/employees", {credentials: "include"});
 
     //log the response in the console just to see the response object (good for debugging)
     console.log(response);
@@ -67,7 +67,7 @@ async function getEmployees() {
 
     } else {
         //alert causes a popup!!
-        alert("uh oh your request failed for some reason :/");
+        alert("uh oh your session is inactive. Maybe not logged in? :/");
     }
 
 
@@ -104,13 +104,15 @@ let response = await fetch(url+"/login", {
     //future fetches after login will require this "include" value 
 })
 
-//log the response status code and data, useful for debugs
+//log the response status code, useful for debugs
 console.log(response.status);
-let data = await response.json(); //converting from json to JS
-console.log(data)
+
 
 //control flow based on successful/unsuccessful login
 if(response.status === 202){
+
+    let data = await response.json(); //converting from json to JS
+
     //wipe our login row and welcome the user
     document.getElementById("loginRow").innerText="Welcome " + data.first_name + "!!";
 
@@ -118,7 +120,8 @@ if(response.status === 202){
     //don't be intimidated, it's an easy google :)
 
 } else {
-    document.getElementById("loginRow").innerText="Login failed! Refresh the page"
+    document.getElementById("welcomeHead").innerText="Login failed! Refresh the page";
+    document.getElementById("welcomeHead").style.color = "red";
 }
 
 }
