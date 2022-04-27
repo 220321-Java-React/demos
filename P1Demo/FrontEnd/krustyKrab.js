@@ -112,7 +112,11 @@ console.log(data)
 //control flow based on successful/unsuccessful login
 if(response.status === 202){
     //wipe our login row and welcome the user
-    document.getElementById("loginRow").innerText="Welcome" + data.first_name;
+    document.getElementById("loginRow").innerText="Welcome " + data.first_name + "!!";
+
+    //THIS IS PROBABLY WHERE YOUR REDIRECT WOULD BE IF USING MULTIPLE HTML PAGES
+    //don't be intimidated, it's an easy google :)
+
 } else {
     document.getElementById("loginRow").innerText="Login failed! Refresh the page"
 }
