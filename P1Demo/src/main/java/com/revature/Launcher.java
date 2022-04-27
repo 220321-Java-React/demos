@@ -49,6 +49,10 @@ public class Launcher {
 		//the app.get() method takes in a URL endpoint, and a place in the server to send the request to
 		app.get("/employees", ec.getEmployeesHandler);
 		
+		//handler ending in /login that takes in POST requests - will validate user login
+		//the app.post() method takes in a URL endpoint, add a place in the server to send the request to
+		app.post("/login", handler);
+		
 	}
 	
 }

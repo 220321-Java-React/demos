@@ -30,7 +30,7 @@ public class EmployeeController {
 		String JSONEmployees = gson.toJson(employees);
 		
 		//Give a HTTP response containing our JSON string back to the webpage (or wherever the HTTP request came from)
-		ctx.result(JSONEmployees); //.result() sends a reponse of data back
+		ctx.result(JSONEmployees); //.result() sends a response of data back
 		ctx.status(200); //.status() sets the HTTP status code. 200 stands for "OK"
 		
 	};
