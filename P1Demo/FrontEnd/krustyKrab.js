@@ -120,7 +120,7 @@ if(response.status === 202){
     //don't be intimidated, it's an easy google :)
 
 } else {
-    document.getElementById("welcomeHead").innerText="Login failed! Refresh the page";
+    document.getElementById("welcomeHead").innerText="Login failed! Try Again";
     document.getElementById("welcomeHead").style.color = "red";
 }
 
