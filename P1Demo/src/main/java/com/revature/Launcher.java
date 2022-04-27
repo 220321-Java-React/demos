@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.revature.controllers.AuthController;
 import com.revature.controllers.EmployeeController;
 import com.revature.models.Menu;
 import com.revature.utils.ConnectionUtil;
@@ -32,6 +33,8 @@ public class Launcher {
 		//Instantiating an EmployeeController object so that we can access it's Handlers
 		EmployeeController ec = new EmployeeController();
 		
+		//Instantiating an AuthController object so we can access it's Handlers
+		AuthController ac = new AuthController();
 		
 		//Typical Javalin syntax to create a Javalin object
 		Javalin app = Javalin.create(
@@ -51,7 +54,7 @@ public class Launcher {
 		
 		//handler ending in /login that takes in POST requests - will validate user login
 		//the app.post() method takes in a URL endpoint, add a place in the server to send the request to
-		app.post("/login", handler);
+		app.post("/login", ac.loginHandler);
 		
 	}
 	
