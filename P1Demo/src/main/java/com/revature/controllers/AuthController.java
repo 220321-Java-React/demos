@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
 import com.revature.services.AuthService;
@@ -12,6 +14,9 @@ public class AuthController {
 
 	//we need an AuthService object to use it's login method
 	AuthService as = new AuthService();
+	
+	//empty HttpSession object that will be filled upon successful login
+	static HttpSession ses;
 	
 	//we need a loginHandler to handle login requests (which come to app.post("/login", xxx)
 	public Handler loginHandler = (ctx) -> {
@@ -31,7 +36,7 @@ public class AuthController {
 		if(as.login(LDTO.getUsername(), LDTO.getPassword()) != null) {
 			
 			//if login is successful, create a user session so that they can access the application's functionalities
-			ctx.req.getSession(true);
+			ses = ctx.req.getSession(true); //we'll check if this is null in functionality that requires an active session
 			
 			
 			//return a successful status code

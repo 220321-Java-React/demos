@@ -2,6 +2,8 @@ package com.revature.controllers;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import com.google.gson.Gson;
 import com.revature.models.Employee;
 import com.revature.services.EmployeeService;
@@ -16,12 +18,14 @@ public class EmployeeController {
 	
 	//we need an EmployeeService object 
 	EmployeeService es = new EmployeeService();
+	
+	
 
 	//this Handler will get the HTTP GET request for all employees, and send back the employees from the database
 	public Handler getEmployeesHandler = (ctx) -> {
 
 		
-		if(ctx.req.getSession(true) != null) { //if the sessions exists 
+		if(AuthController.ses != null) { //if there is an active session from the AuthController...
 			
 		//we need an ArrayList of Employee objects (which we'll get from the service layer)
 		ArrayList<Employee> employees = es.getEmployees();

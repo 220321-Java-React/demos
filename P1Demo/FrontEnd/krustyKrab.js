@@ -108,11 +108,13 @@ let response = await fetch(url+"/login", {
 console.log(response.status);
 
 
+
 //control flow based on successful/unsuccessful login
 if(response.status === 202){
 
-     //converting from json to JS
-     let data = await response.json();
+    //converting from json to JS
+    let data = await response.json();
+
     //wipe our login row and welcome the user
     document.getElementById("loginRow").innerText="Welcome " + data.first_name + "!!";
 
