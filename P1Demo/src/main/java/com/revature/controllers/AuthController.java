@@ -1,5 +1,7 @@
 package com.revature.controllers;
 
+import java.util.Collection;
+
 import com.google.gson.Gson;
 import com.revature.models.LoginDTO;
 import com.revature.services.AuthService;
@@ -29,7 +31,8 @@ public class AuthController {
 		if(as.login(LDTO.getUsername(), LDTO.getPassword()) != null) {
 			
 			//if login is successful, create a user session so that they can access the application's functionalities
-			ctx.req.getSession();
+			ctx.req.getSession(true);
+			
 			
 			//return a successful status code
 			ctx.status(202); //202 stands for "accepted"

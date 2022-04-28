@@ -19,9 +19,10 @@ public class EmployeeController {
 
 	//this Handler will get the HTTP GET request for all employees, and send back the employees from the database
 	public Handler getEmployeesHandler = (ctx) -> {
+
 		
-		if(ctx.req.getSession(false) != null) { //if the sessions exists 
-		
+		if(ctx.req.getSession(true) != null) { //if the sessions exists 
+			
 		//we need an ArrayList of Employee objects (which we'll get from the service layer)
 		ArrayList<Employee> employees = es.getEmployees();
 		
@@ -36,7 +37,7 @@ public class EmployeeController {
 		ctx.status(200); //.status() sets the HTTP status code. 200 stands for "OK"
 		
 		} else { //if a session DOESN'T exist (user isn't logged in)
-			ctx.status(401);
+			ctx.status(400);
 		}
 		
 	};
