@@ -18,6 +18,10 @@ export class FirstClassComponent extends React.Component<{}, {}>{
                 <h3>Hello from our first class-based component!</h3>
                 <p>{this.words}</p>
             </div>
+            /* 
+                What is "this"? this.xyz just means we're getting the variable from THIS class 
+                from within THIS class, we're calling the variable called "words"
+            */
         )
     }
 
