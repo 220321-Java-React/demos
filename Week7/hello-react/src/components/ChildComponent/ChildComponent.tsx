@@ -18,6 +18,7 @@ export class ChildComponent extends React.Component<any, any>{
         }
     }
 
+    //child component gets these values from its props, which is data coming from the parent
     render() {
         return(
             <div>
