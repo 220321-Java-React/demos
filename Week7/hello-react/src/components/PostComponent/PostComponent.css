@@ -1,0 +1,19 @@
+.post-container {
+    width: 100%;
+    display: flex;
+    padding: 25px;
+    border: 2px solid black
+}
+
+.profile-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.profile-pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    object-fit: cover;
+}

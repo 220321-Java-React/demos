@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import { IUser } from "../../interfaces/IUser";
 
 //import the CSS file we'll style this component with
+import "./PostComponent.css";
 
 //export CONST instead of export class, this is a function component not a class component
 //recall how lambdas/arrow functions work: they take in some data, and execute some code
