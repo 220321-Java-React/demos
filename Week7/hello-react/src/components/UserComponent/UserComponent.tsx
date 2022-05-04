@@ -1,6 +1,7 @@
 import React from "react"
 
 import { IUser } from "../../interfaces/IUser"
+import { PostComponent } from "../PostComponent/PostComponent";
 
 //Because we only ever intend to use data found in IUser, we'll put IUser as the state
 export class UserComponent extends React.Component<any, IUser> {
@@ -40,9 +41,10 @@ export class UserComponent extends React.Component<any, IUser> {
                 <h2>{this.state.firstName} {this.state.lastName}</h2>
                 <h3>{this.state.username}</h3>
                 <h3>{this.state.email}</h3>
-                
+                <PostComponent {...this.state}/>
             </div>
         )
+        //to send the entire state object to a child component, we use {...this.state}
     }
 
 }
