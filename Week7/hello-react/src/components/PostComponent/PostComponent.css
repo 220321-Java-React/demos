@@ -2,11 +2,13 @@
     width: 100%;
     display: flex;
     padding: 25px;
-    border: 2px solid black
+    border: 2px solid black;
+    flex-direction: column;
 }
 
 .profile-container {
     display: flex;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
 }
@@ -16,4 +18,11 @@
     width: 50px;
     border-radius: 100%;
     object-fit: cover;
+}
+
+.content-container {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 10px;
+    background-color: lightslategray;
 }
