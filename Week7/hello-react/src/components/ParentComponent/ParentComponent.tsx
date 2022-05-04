@@ -10,7 +10,7 @@ export class ParentComponent extends React.Component<{}, any> {
     //these are two pieces of data we intend to send to our child component
     state = {
         color: 'blue',
-        animal: 'dog'
+        animal: 'dog',
     }
 
     //if you don't create a constructor there will be a default one

@@ -3,7 +3,7 @@ import { FirstClassComponent } from './components/FirstClassComponent/FirstClass
 import { ParentComponent } from './components/ParentComponent/ParentComponent';
 
 
-//THE APP.TSX IS OUT MAIN PAGE IN REACT. We won't often be using it, but everything roots to here
+//THE APP.TSX IS OUR MAIN PAGE IN REACT. We won't often be using it, but everything roots to here
 
 //The App.tsx file is where we put what we want displayed on the webpage
 //You can add standard TSX, or entire components (which will have their own TSX)
