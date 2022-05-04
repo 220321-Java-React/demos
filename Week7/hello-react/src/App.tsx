@@ -1,6 +1,7 @@
 import React from 'react'; //we will always need to do this in most logic files
 import { FirstClassComponent } from './components/FirstClassComponent/FirstClassComponent';
 import { ParentComponent } from './components/ParentComponent/ParentComponent';
+import { UserComponent } from './components/UserComponent/UserComponent';
 
 
 //THE APP.TSX IS OUR MAIN PAGE IN REACT. We won't often be using it, but everything roots to here
@@ -19,6 +20,7 @@ function App() {
 
       <FirstClassComponent/>
       <ParentComponent/>
+      <UserComponent/>
     </div>
   );
 }
