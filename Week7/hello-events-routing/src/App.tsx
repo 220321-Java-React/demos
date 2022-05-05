@@ -1,16 +1,24 @@
 import React from 'react';
 import { HypotenuseComponent } from './components/HypotenuseComponent/HypotenuseComponent';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import "./App.css"
+
 
 //Remember, App.tsx is the main page we'll render stuff on. 
 //We can render TSX directly in the return(), or render entire Components 
 
+//note the syntax for Routing:
+//the Router, hold the different Routes tags, which each hold a different Route
+//The Route tag will hold a url path and the component that gets rendered on that url
 function App() {
   return (
-    <div className="App">
-        <HypotenuseComponent/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/hyp" element={<HypotenuseComponent/>}/>
+      </Routes>
+    </Router>
   );
 }
 
