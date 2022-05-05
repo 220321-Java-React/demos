@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ResultDisplay } from "../ResultDisplayComponent/ResultDisplayComponent";
 import { SideComponent } from "../SideComponent/SideComponent";
 
 import "./HypotenuseComponent.css";
@@ -42,6 +43,7 @@ export const HypotenuseComponent: React.FC<any> = () => {
     //finally, assign this resultCalc variable to our result variable (useState)
     setResult(resultCalc);
 }
+
     //render our TSX!
     //The Hypotenuse Component will be rendered on the main page... 
     //...and use the SideComponent to ask the user to enter the first and second values.
@@ -49,11 +51,10 @@ export const HypotenuseComponent: React.FC<any> = () => {
     //and then render the result onto the page!
     return(
         <div className="input-container">
-            <h3>Hypotenuse Component Works!</h3>
+            <h3>Hypotenuse Component Does Not Work! But it renders :)</h3>
             <SideComponent name="first" onChange={calculateResult}/>
             <SideComponent name="second" onChange={calculateResult}/>
-            <h6>{result}</h6>
+            <ResultDisplay values={values} result={result}/>
         </div>
     )
-
 }
