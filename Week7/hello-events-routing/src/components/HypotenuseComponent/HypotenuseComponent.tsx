@@ -27,7 +27,7 @@ export const HypotenuseComponent: React.FC<any> = () => {
                 //the value inserted will be assigned to either "first" or "second"...
                 //depending on which of the Sides got new data
                 //e.g. first:value OR second:value. IT'S VALUE ASSIGNMENT!!!
-                [e.target.name]:e.target.value
+                [e.target.name]:e.target.value 
             }
         )
 
