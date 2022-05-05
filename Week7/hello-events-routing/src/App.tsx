@@ -1,10 +1,10 @@
 import React from 'react';
 import { HypotenuseComponent } from './components/HypotenuseComponent/HypotenuseComponent';
 
+//this import is kinda janky, make sure to write it in this order
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./App.css"
-
 
 //Remember, App.tsx is the main page we'll render stuff on. 
 //We can render TSX directly in the return(), or render entire Components 
