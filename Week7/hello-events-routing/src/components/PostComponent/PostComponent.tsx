@@ -2,16 +2,17 @@ import React from "react";
 
 //Ben will import some css later
 
+//post is the props that we're getting from PostContainer
 export const PostComponent: React.FC<any> = (post:any) => {
 
 
     return(
         <div className="post-container">
             <div className="post-profile">
-                <h3>Post user will go here</h3>
+                <h3>{post.username}</h3>
             </div>
             <div className="post-content">
-                <p>Post content will go here</p>
+                <p>{post.content}</p>
             </div>
         </div>
     )

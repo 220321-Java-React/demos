@@ -5,6 +5,8 @@ import { HypotenuseComponent } from './components/HypotenuseComponent/Hypotenuse
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import "./App.css"
+import { PostContainer } from './components/PostContainerComponent/PostContainer';
+import { data } from './data';
 
 //Remember, App.tsx is the main page we'll render stuff on. 
 //We can render TSX directly in the return(), or render entire Components 
@@ -17,6 +19,9 @@ function App() {
     <Router>
       <Routes>
         <Route path="/hyp" element={<HypotenuseComponent/>}/>
+      </Routes>
+      <Routes>
+        <Route path="/posts" element={<PostContainer data={data}/>}></Route>
       </Routes>
     </Router>
   );

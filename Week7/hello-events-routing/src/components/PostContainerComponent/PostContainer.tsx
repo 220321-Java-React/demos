@@ -17,10 +17,15 @@ export const PostContainer: React.FC<any> = (data) => {
     }, [posts]) //for every piece of data in the data Array, put it in our posts state variable
 
     return(
-        //for every post in our data array, render a Post component for it
+        //for every post in our posts array, render a Post component for it (.map())
         <div>
-
+            {posts.map((posts:any) => {
+                return <PostComponent {...posts} key={posts.postId}/>
+            })}
         </div>
+        //looks confusing... but let me try to elaborate. we use .map on our posts state variable!
+        //so, for every piece of data in posts (posts:any), render one PostComponent
+        //in that post component, we send the appropriate post and a key, which is our postId
     )
 
 }
