@@ -14,7 +14,7 @@ export const PostContainer: React.FC<any> = (data) => {
     //so our posts state variable will be filled with the Array from data.ts
     useEffect(() => {
         setPosts(data.data)
-    }, [posts]) 
+    }, [posts]) //for every piece of data in the data Array, put it in our posts state variable
 
     return(
         //for every post in our data array, render a Post component for it
