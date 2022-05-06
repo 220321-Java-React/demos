@@ -1,0 +1,22 @@
+.post-container{
+    width: 50%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    border: 2px double black;
+    background-color: burlywood;
+    flex-direction: column;
+}
+
+.post-profile{
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: start;
+}
+
+.post-content{
+    margin-left: auto;
+    margin-right: auto;
+}

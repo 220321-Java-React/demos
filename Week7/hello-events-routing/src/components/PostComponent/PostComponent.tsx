@@ -1,6 +1,6 @@
 import React from "react";
 
-//Ben will import some css later
+import "./PostComponent.css"
 
 //post is the props that we're getting from PostContainer
 export const PostComponent: React.FC<any> = (post:any) => {
