@@ -19,7 +19,7 @@ export const Login: React.FC<any> = () => {
                 </div>
             </div>
 
-        <button className="login-button" ></button>
+        <button className="login-button" >Catch 'em all!</button>
 
         </div>
     )
