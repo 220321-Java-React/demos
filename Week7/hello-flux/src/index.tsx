@@ -3,13 +3,21 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+//THIS IS THE ONLY TIME WE NEED TO MESS WITH THE INDEX.TSX:
+//we need to set a Provider, equal to our store
+//this is how we make the store universally visible to the application
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store = {store}>
+      <App />
+    </Provider> 
   </React.StrictMode>
 );
 
