@@ -1,6 +1,8 @@
 //This is our actual store file, which will store all the active data in our application
 import {configureStore} from "@reduxjs/toolkit";
 
+
+
 import { AppState } from "./types";
 
 
