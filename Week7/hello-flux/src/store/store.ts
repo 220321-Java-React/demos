@@ -1,10 +1,8 @@
 //This is our actual store file, which will store all the active data in our application
 import {configureStore} from "@reduxjs/toolkit";
-
-
+import reducer from "../reducers/index";
 
 import { AppState } from "./types";
-
 
 //the initial state of the application in the store will have default user and poke
 const initialState:AppState = {
@@ -22,4 +20,9 @@ const initialState:AppState = {
 //when the user logs in, this user object will get populated with the user's data
 //when a pokemon is retrieved the poke object will get populated with pokemon data 
 
-export const store = configureStore()
+//here, I'm just configuring our store to be able to use reducers so we can dispatch new data here
+//our entire folder of reducers is contained in this "reducer" object
+//so now, when store data changes, reducers automatically notify components, which change their view
+export const store = configureStore({
+    reducer
+})
