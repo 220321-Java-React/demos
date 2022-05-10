@@ -1,12 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 import "./Login.css"
 
 export const Login: React.FC<any> = () => {
 
+    //this is how we access the state in the store. The data in the universal data file.
+    const appState = useSelector((state) => state)
+
+    //we need this object to actually dispatch data to our store
+    const dispatch = useDispatch();
+
+    //useState hooks to declare a state object, a mutator (which changed state), and a default value
+    let [username, setUsername] = useState('');
+    let [password, setPassword] = useState('');
 
 
-    //BEN NEEDS TO ADD A LOT OF JUNK INCLUDING ONCLICK AND ONCHANGE 
+
     return(
         <div className="login">
 
@@ -15,13 +25,13 @@ export const Login: React.FC<any> = () => {
                 <h3>Sign in to browse for a pokemanz</h3>
 
                 <div className="input-container">
-                    <input type="text" name="username" placeholder="username"/>
+                    <input type="text" name="username" placeholder="username" onChange={handleChange}/>
                 </div>
                 <div className="input-container">
-                    <input type="password" name="password" placeholder="password"/>
+                    <input type="password" name="password" placeholder="password" onChange={handleChange}/>
                 </div>
 
-                <button className="login-button">Catch 'em all!</button>
+                <button className="login-button" onClick={loginFunc}>Catch 'em all!</button>
             </div>
 
             <div className="disclaimer">
