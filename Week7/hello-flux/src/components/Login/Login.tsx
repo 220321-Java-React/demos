@@ -8,7 +8,7 @@ import "./Login.css"
 export const Login: React.FC<any> = () => {
 
     //this is how we access the state in the store. The data in the universal data file.
-    const appState = useSelector<any, any>((state) => state)
+    const appState = useSelector<any, any>((state) => state);
 
     //we need this object to actually dispatch data to our store
     const dispatch = useDispatch();

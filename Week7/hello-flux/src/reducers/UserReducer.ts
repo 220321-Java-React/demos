@@ -6,7 +6,7 @@ import { IUser } from "../store/types";
 let initialState:IUser = {
     id:0,
     username:"",
-    password:""
+    password:"",
 }
 
 //this is an object that will determine what actions to take
@@ -23,5 +23,7 @@ export const UserReducer = (state:IUser = initialState, action: Action) => {
             return {
                 ...initialState
             }
+        default:
+            return state
     }
 }

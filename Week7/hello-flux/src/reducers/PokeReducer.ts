@@ -11,5 +11,8 @@ const initialState:IPoke = {
 type Action = {type: string, payload: object}
 
 export const PokeReducer = (state:IPoke = initialState, action:Action) => {
-    //again, leaving this empty for now
+    switch(action.type){
+        default:
+            return state
+    }
 }
