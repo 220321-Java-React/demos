@@ -2,10 +2,12 @@
 
 import React from "react"
 
+
+
 export const Pokemon: React.FC<any> = (props) => {
 
     return(
-        <div>
+        <div className="pokemon-container">
             <img src={props.poke.sprite}/>
             <h3>{props.poke.name}</h3>
         </div>
