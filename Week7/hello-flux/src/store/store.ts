@@ -5,6 +5,8 @@ import reducer from "../reducers/index";
 import { AppState } from "./types";
 
 //the initial state of the application in the store will have default user and poke
+//this variable contains the state for the ENTIRE application
+//when user or poke payload get dispatched here, this state will change
 const initialState:AppState = {
     user: {
         id:0,

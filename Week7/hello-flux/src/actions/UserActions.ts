@@ -26,14 +26,19 @@ export const loginUser = (loginCreds:UserLogin) => async (dispatch:any) => {
         const response = await axios.post('http://localhost:5000/login', loginCreds);
 
         if(response.status === 202) { //if the login was successful...
-            //populate our loggedInUser variable
+            
+            console.log(response) //to see the data coming back
+
+            //populate our loggedInUser variable based on the data sent back from the server
+            //this is the payload of new data we're going to dispatch to the store
             loggedInUser = {
                 id: response.data.id,
                 username: response.data.username,
                 password: response.data.password
             }
 
-            //now we actually DISPATCH (send) this data to the store
+            //now we actually DISPATCH (send) this data to the store and reducers 
+            //see UserReducer, see store.ts
             //notice in the reducers, this is the type of data we need for the Action object
             return dispatch({
                 type: LOGIN_USER,

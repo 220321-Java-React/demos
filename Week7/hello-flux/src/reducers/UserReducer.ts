@@ -19,11 +19,16 @@ export const UserReducer = (state:IUser = initialState, action: Action) => {
     //look at loginUser in the UserACtions to see where this is coming from
     switch(action.type){
         case LOGIN_USER:
-            initialState = action.payload
+            //we change the default IUser to the User we sent in (the payload)
+            //in this way, we change the initial state to the data that came from the server
+            initialState = action.payload 
             return {
-                ...initialState
+                ...initialState //return that object so it can be used in the view
             }
+        //THIS BROKE MY CODE BEFORE
+        //since there is no action when the application starts, we need a default case
+        //or else the application will break.
         default:
             return state
-    }
+        }
 }

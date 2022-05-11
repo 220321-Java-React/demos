@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { loginUser } from "../../actions/UserActions"
+import { Home } from "../Home/Home"
 
 import "./Login.css"
 
@@ -27,6 +28,7 @@ export const Login: React.FC<any> = () => {
     const handleChange = (e:any) => {
         if(e.target.name === "username"){ //if the input is name=username...
             setUsername(e.target.value) //set username to be the value that was inserted
+            console.log(username) //to show useState working
         } else {
             setPassword(e.target.value) //otherwise, set the password with that value.
         }
@@ -71,6 +73,7 @@ export const Login: React.FC<any> = () => {
             <div className="disclaimer">
                 <p>PokeMart© and its affiliates do not condone the misuse or mistreatment of pokemon</p>
             </div>
+
         </div>
     )
 
