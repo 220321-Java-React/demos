@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { getPoke } from "../../actions/PokeActions";
+import { Pokemon } from "../Pokemon/Pokemon";
 
 import "./Home.css"
 
@@ -38,7 +39,7 @@ export const Home: React.FC<any> = () => {
                 <h3>Search for your Pokemon!</h3>
                 <input type="number" name="pokeSearch" placeholder="Enter PokeID" onChange={handleChange}/>
                 <button className="poke-button" onClick={loadPoke}>Find Pokemon</button>
-                
+                <Pokemon poke={appState.poke}/>
             </div>
         </div>
     );
