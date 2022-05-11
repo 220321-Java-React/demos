@@ -14,7 +14,7 @@ export const getPoke = (pokeID:number) => async (dispatch:any) => {
 
         //making an axios HTTP request to GET a pokemon from pokeAPI, with the ID sent in
         //remember, we need to AWAIT async functions because they return a promise object
-        const response = await axios.get("https://pokeapi.co/api/v2/pokemon" + pokeID)
+        const response = await axios.get("https://pokeapi.co/api/v2/pokemon/" + pokeID)
 
         //fill out the empty incomingPoke object with Pokemon data
         incomingPoke = {
