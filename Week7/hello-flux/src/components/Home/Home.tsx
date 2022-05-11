@@ -36,11 +36,10 @@ export const Home: React.FC<any> = () => {
     return(
         <div className="home-page">
             <div className="home-container">
-            <Pokemon poke={appState.poke}/>
+                <Pokemon poke={appState.poke}/>
                 <h3>Search for your Pokemon!</h3>
                 <input type="number" name="pokeSearch" placeholder="Enter PokeID" onChange={handleChange}/>
                 <button className="poke-button" onClick={loadPoke}>Find Pokemon</button>
-                
             </div>
         </div>
     );
