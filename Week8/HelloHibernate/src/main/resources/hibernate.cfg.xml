@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+ <hibernate-configuration>
+ 	<session-factory>
+ 	
+ 	<!-- JDBC -->
+		<property name="hibernate.connection.username">postgres</property>
+		<property name="hibernate.connection.password">Sparky2014!!</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres?currentSchema=hibernate</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+	<!-- Hibernate Properties -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="hibernate.default_schema">hibernate</property>
+	<!-- Hibernate console output -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+	<!-- DDL -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
+	<!-- Anyone remember what setting our hbm2ddl.auto to create will do? -->
+	<!-- This means that whenever your application runs, it wipes your DB and creates all the table -->
+	<!-- THIS WILL ALSO WIPE ALL THE DATA IN YOUR DATABASE TABLES. The database vaporizer -->
+		
+		<!-- We will map our classes here -->
+		<mapping class="com.revature.models."/>
+		<mapping class="com.revature.models."/>
+ 	
+ 	</session-factory>
+ </hibernate-configuration>
