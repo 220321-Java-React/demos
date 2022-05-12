@@ -1,5 +1,8 @@
 package com.revature.daos;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 
 import com.revature.models.Movie;
@@ -23,7 +26,43 @@ public class MovieDAO {
 		HibernateUtil.closeSession();
 		
 		//This is the ENTIRE DAO method to insert a new movie - much cleaner and less complicated than JDBC
+	}
+	
+	//If you're SELECTing ALL records from the DB, HQL is your best bet since it's so quick
+	public List<Movie> getAllMovies(){
+		
+		//open a Session object to connect to the DB
+		Session ses = HibernateUtil.getSession();
+		
+		//SELECT ALL movies using HQL instead of sessions methods.
+		List<Movie> movieList = ses.createQuery("FROM Movie").list();
+		//we're selecting ALL records FROM the movies table. Remember, HQL uses Class names, not DB table names
+		
+		//close the session
+		HibernateUtil.closeSession();
+		
+		//return the List of Movies
+		return movieList;
 		
 	}
+	
+	//Session methods are best used when you're SELECTing by the primary key
+	//because get() and load() both expect a serializable (which our PK is)
+	public Movie getMovieById(int id) {
+		
+		//open a Session object
+		Session ses = HibernateUtil.getSession();
+		
+		//SELECT a Movie by ID 
+		Movie movie = ses.get(Movie.class, id);
+		
+		//close the Session
+		HibernateUtil.closeSession();
+		
+		//return the Movie
+		return movie;
+		
+	}
+	
 	
 }
