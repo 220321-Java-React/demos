@@ -25,8 +25,8 @@
 	<!-- THIS WILL ALSO WIPE ALL THE DATA IN YOUR DATABASE TABLES. The database vaporizer -->
 		
 		<!-- We will map our classes here -->
-		<mapping class="com.revature.models."/>
-		<mapping class="com.revature.models."/>
+		<mapping class="com.revature.models.Director"/>
+		<mapping class="com.revature.models.Movie"/>
  	
  	</session-factory>
  </hibernate-configuration>
