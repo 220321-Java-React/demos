@@ -38,6 +38,13 @@ public class Launcher {
 		System.out.println(mDAO.getMovieById(2));
 		
 		
+		//calling our SELECT by director ID method
+		List<Movie> directorMovies = mDAO.getMoviesByDirectorId(1);
+		
+		for(Movie m:directorMovies) {
+			System.out.println(m);
+		}
+		
 	}
 	
 }

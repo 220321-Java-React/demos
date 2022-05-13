@@ -74,7 +74,7 @@ public class MovieDAO {
 		
 		//create a query with a parameter that takes in the director id (given in the method argument)
 		//"find every Movie which we'll call m, where the id of it's Director object = ?"
-		Query q = ses.createQuery("FROM Movie m WHERE m.director.director_id = ?0");
+		Query q = ses.createQuery("FROM Movie m WHERE m.director_fk.director_id = ?0");
 		
 		//set the ? to the id sent in the method call. This is how we PARAMETERIZE HQL
 		q.setParameter(0, id);
@@ -85,6 +85,11 @@ public class MovieDAO {
 		HibernateUtil.closeSession();
 		
 		return movieList;
+		
+		/*
+		  I'd imagine this is a good template for user login
+		  "FROM User u WHERE u.username = ?0 etc...."
+		 */
 		
 	}
 	
