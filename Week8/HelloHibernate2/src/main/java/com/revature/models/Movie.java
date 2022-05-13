@@ -94,12 +94,14 @@ public class Movie {
 		this.director_fk = director_fk;
 	}
 
+	
+	//WE NEED TO MANIPULATE OUR TOSTRING to kill the inifinite loop
+	//Instead of calling a Director object (which has a List of Movies, each of which have a Director, thus infinite loop)
+	//We cam simply call some fields of the Director object (like Director name) to make sure it doesn't loop infinity 
 	@Override
 	public String toString() {
-		return "Movie [movie_id=" + movie_id + ", title=" + title + ", genre=" + genre + ", director_fk=" + director_fk
-				+ "]";
+		return "Movie [movie_id=" + movie_id + ", title=" + title + ", genre=" + genre + ", director_fk=" 
+				+ director_fk.getDirector_name() + "]";
 	}
-	
-	
 	
 }
