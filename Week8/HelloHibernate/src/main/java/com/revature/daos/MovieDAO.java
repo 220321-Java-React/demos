@@ -3,6 +3,8 @@ package com.revature.daos;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 
 import com.revature.models.Movie;
@@ -64,5 +66,26 @@ public class MovieDAO {
 		
 	}
 	
+	//get all Movies by Director with HQL
+	//check the HQL query - we'll need to look for director.director_id, since we're searching Movie.director.director_id
+	public List<Movie> getMoviesByDirectorId(int id){
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//create a query with a parameter that takes in the director id (given in the method argument)
+		//"find every Movie which we'll call m, where the id of it's Director object = ?"
+		Query q = ses.createQuery("FROM Movie m WHERE m.director.director_id = ?0");
+		
+		//set the ? to the id sent in the method call. This is how we PARAMETERIZE HQL
+		q.setParameter(0, id);
+		
+		//create a List of Movies based on the results of the query
+		List<Movie> movieList = q.getResultList();
+		
+		HibernateUtil.closeSession();
+		
+		return movieList;
+		
+	}
 	
 }
