@@ -45,6 +45,15 @@ public class Launcher {
 			System.out.println(m);
 		}
 		
+		//UPDATE a Movie with session methods
+		m2.setTitle("Terminator");
+		m2.setGenre("Sci Fi Bonfire");
+		
+		mDAO.updateWithSessionMethod(m2);
+		
+		//print out the movie just to show that it updated
+		System.out.println(mDAO.getMovieById(2)); //Movie m2 has an id of 2
+		
 	}
 	
 }

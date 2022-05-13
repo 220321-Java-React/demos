@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Query;
 
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import com.revature.models.Movie;
 import com.revature.utils.HibernateUtil;
@@ -74,6 +75,7 @@ public class MovieDAO {
 		
 		//create a query with a parameter that takes in the director id (given in the method argument)
 		//"find every Movie which we'll call m, where the id of it's Director object = ?"
+		//"m" is an alias (different name) that we gave to Movie, so help us make a cleaner query
 		Query q = ses.createQuery("FROM Movie m WHERE m.director_fk.director_id = ?0");
 		
 		//set the ? to the id sent in the method call. This is how we PARAMETERIZE HQL
@@ -90,6 +92,50 @@ public class MovieDAO {
 		  I'd imagine this is a good template for user login
 		  "FROM User u WHERE u.username = ?0 etc...."
 		 */
+		
+	}
+	
+	
+	//Using the Session method to update (we can do update() or merge(), I like merge because it's less error prone)
+	public void updateWithSessionMethod(Movie movie) {
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//all updates and deletes must be wrapped within A TRANSACTION
+		//I'm not entirely sure why, but presumably it's to prevent inaccurate data if something fails
+		Transaction tran = ses.beginTransaction();
+		
+		//update whatever Movie got sent in
+		ses.merge(movie); //how does it know which movie to update? It checks the PK.
+		
+		//close the transaction and the session
+		tran.commit();
+		HibernateUtil.closeSession();
+		
+	}
+	
+	//we can also use HQL to update of course
+	public void updateWithHQL(Movie movie) {
+		
+		Session ses = HibernateUtil.getSession();
+		
+		//remember, updates and deletes must be in TRANSACTIONS
+		Transaction tran = ses.beginTransaction();
+		
+		//Assign our query syntax to a query object
+		//note the triple quotes, the single quotes are for SQL, the double quotes are for our String concatenation
+		//it's like saying UPDATE Movie SET title = 'new title' WHERE movie_id = X;
+		Query q = ses.createQuery("UPDATE Movie SET title = '" + movie.getTitle() + "' WHERE movie_id = " + movie.getMovie_id());
+		
+		//As you can see, the update session method is easier than doing it with HQL
+		//But, HQL is a lot more flexible. This tends to be a trend with session methods vs HQL
+		
+		//we have to actually execute this update
+		q.executeUpdate();
+		
+		//close the transaction and session
+		tran.commit();
+		HibernateUtil.closeSession();
 		
 	}
 	
