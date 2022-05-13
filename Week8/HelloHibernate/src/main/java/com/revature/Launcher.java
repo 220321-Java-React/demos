@@ -54,6 +54,14 @@ public class Launcher {
 		//print out the movie just to show that it updated
 		System.out.println(mDAO.getMovieById(2)); //Movie m2 has an id of 2
 		
+		
+		//UPDATE a Movie with HQL
+		m1.setTitle("Resevoir Dogs");
+		
+		mDAO.updateWithHQL(m1);
+		
+		System.out.println(m1);
+		
 	}
 	
 }

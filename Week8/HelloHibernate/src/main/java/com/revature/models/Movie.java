@@ -38,7 +38,7 @@ public class Movie {
 	
 	//What is FetchType and CascadeType????
 	
-	//BEN WILL NOT FORGET TO TALK ABOUT IT
+	//BEN WILL NOT FORGET TO TALK ABOUT IT IN THE NOTES
 	
 	//Boilerplate code below------------------------------
 	
