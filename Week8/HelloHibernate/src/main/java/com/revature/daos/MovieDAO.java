@@ -134,6 +134,7 @@ public class MovieDAO {
 		q.executeUpdate();
 		
 		//close the transaction and session
+		//we must commit the changes if we want them to actually save to the DB
 		tran.commit();
 		HibernateUtil.closeSession();
 		
