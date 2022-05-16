@@ -16,11 +16,17 @@
    
    <!-- Account Bean -->
    
-   
+   <bean name="account" class="com.revature.models.Account"></bean>
    
    <!-- User Bean -->
    
+   <bean name="user" class="com.revature.models.User">
    
+   <!-- the User Class has an Account as one of its fields. So we need to WIRE the beans together with the property tag -->
+   <property name="account" ref="account"></property>
+   <!-- name is the name of the field in the User Class. ref is the name of the Bean in our XML -->
+   
+   </bean>
    
 </beans>
 
