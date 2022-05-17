@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The applicationContext.xml holds the configurations for how we register, create, and inject Spring beans -->
+<!-- We're configuring our spring container! (ApplicationContext) -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context.xsd">
+   
+   <!-- In modern times, this line is the only thing we need in our applicationContext.xml when using @Autowired -->
+   <context:component-scan base-package="com.revature"></context:component-scan>
+   <!-- With this one line, Spring scans our entire com.revature package for bean annotations (such as @Component) -->
+ 
+</beans>
