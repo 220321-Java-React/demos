@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import com.revature.models.Avenger;
 
-@Repository
+@Repository //This makes DAO classes a Bean
 public class AvengerDAO {
 	
 	public static Avenger[] team = {
