@@ -2,6 +2,7 @@ package com.revature.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 import com.revature.models.Account;
 import com.revature.models.User;
@@ -9,9 +10,10 @@ import com.revature.models.User;
 @Configuration //This is how we specify that a Class is a Bean Configuration Class
 public class Config {
 
-	//in a config class we configure our Beans with getters
+	//in a config class we configure our Beans with getters (this is the OTHER ugly way to configure/wire beans)
 	
-	@Bean(name = "user")
+	@Bean(name = "user") //name our bean
+	@Scope("prototype") //scope our bean (singleton by default)
 	public User getUser() {
 		
 		//return new User();
