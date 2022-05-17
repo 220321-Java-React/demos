@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -63,6 +65,26 @@ public class AvengerController {
 		
 	}
 	
+	//update an Avenger
+	@PutMapping //any HTTP PUT request ending in /avenger will go here
+	//@RequestBody converts JSON from the body of the request into an object we specify (Avenger in this case)
+	public ResponseEntity<Avenger> updateAvenger(@RequestBody Avenger avenger){
+		
+		//if the update fails (if the avenger we update doesn't have a valid id)...
+		if(avenger == null) {
+			ResponseEntity.badRequest().body(avenger);
+			//send back a response with status code bad request (400) and the null avenger 
+		}
+		
+		//if Avenger update is successfull, use the update DAO method and send the new avenger back
+		avenger = aDAO.update(avenger);
+		
+		return ResponseEntity.accepted().body(avenger);
+		//send back a status code of accepted (202) and the the new avenger data
+		
+	}
 	
+	//What about @PostMapping? should be pretty straightforward to make a POST request
+	//you'd simply get the data out of the @RequestBody and send it wherever it needs to go.
 	
 }
