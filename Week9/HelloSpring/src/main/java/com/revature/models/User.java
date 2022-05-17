@@ -18,6 +18,11 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
+	//we created this Account only constructor to accomplish Autowiring in our Config Class
+	public User(Account account) {
+		super();
+		this.account = account;
+	}
 
 	public User(int id, String name, Account account) {
 		super();
