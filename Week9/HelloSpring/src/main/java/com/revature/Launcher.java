@@ -21,6 +21,37 @@ public class Launcher {
 		//a cast is needed because the ApplicationContext can't guess what kind of object this will be
 		User u = (User)ac.getBean("user");
 		
+		//Let's take a look at what our User bean looks like
+		System.out.println(u);
+		//we got a User object that the ApplicationContext created for us with .getBean()
+		//BUT... nowhere did I create an Account class to attach to it.
+		//This is the power of autowiring - Spring did it for us, "automagically"
+		
+		//now we can give our Bean some values
+		u.setId(1);
+		u.setName("Bon");
+		u.getAccount().setBalance(5000.56); //we need to use the getter of the User class to access Account variables
+		u.getAccount().setType("Savings");
+		
+		//User should have full data now!
+		System.out.println(u);
+		
+		
+		System.out.println("================================================(Messing with Bean Scopes)");
+		
+		//recall bean scopes - Beans are singletons by default, which means there can only ever be one instance
+		User u2 = (User)ac.getBean("user");
+		
+		//Give the user new values
+		u2.setName("Bono");
+		u2.setId(2);
+		
+		//Thus, this new User is the same User as the first one we made
+		System.out.println(u2);
+		//the values will be the same across all User objects.
+		System.out.println(u);
+		
+		//If you're reading this, we changed the User scope to "prototype" so that there can be unique instances
 		
 		
 	}

@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component //again, we want to make this Class a bean
-@Scope("singleton") //Classes are singletons by default...
+@Scope("prototype") //Classes are singletons by default...
 public class User {
 
 	private int id;
