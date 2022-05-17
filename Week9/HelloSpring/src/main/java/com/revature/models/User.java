@@ -1,5 +1,6 @@
 package com.revature.models;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -19,6 +20,7 @@ public class User {
 	}
 
 	//we created this Account only constructor to accomplish Autowiring in our Config Class
+	@Autowired //autowiring our Account Bean with CONSTUCTOR INJECTION (thanks to the easy way of configuring/wiring beans) 
 	public User(Account account) {
 		super();
 		this.account = account;

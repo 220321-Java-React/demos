@@ -12,12 +12,12 @@ public class Launcher {
 	public static void main(String[] args) {
 		
 		//Create an ApplicationContext Spring Container object. It will manage our beans!
-		//ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+		ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
 		//we are instantiating a new ApplicationContext to hold our spring beans
 		//BUT in order to configure it we need to give it the class path context to our config file (our XML file)
 		
 		//This is how you make an ApplicationContext when using a CONFIG CLASS
-		ApplicationContext ac = new AnnotationConfigApplicationContext(Config.class);
+		//ApplicationContext ac = new AnnotationConfigApplicationContext(Config.class);
 		
 		//Now that we have a Spring Container^^^ which is storing User and Account beans, we can make some!
 		
