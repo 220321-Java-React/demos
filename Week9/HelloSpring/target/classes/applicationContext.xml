@@ -10,23 +10,28 @@
 	http://www.springframework.org/schema/context
    http://www.springframework.org/schema/context/spring-context.xsd">
    
+   <!-- In modern times, this line is the only thing we need in our applicationContext.xml when using @Autowired -->
+   <context:component-scan base-package="com.revature"></context:component-scan>
+   <!-- With this one line, Spring scans our entire com.revature package for bean annotations (such as @Component) -->
+   
    
    <!-- Below, we are declaring and wiring beans in XML (1 of the 2 OLD ways to wire beans) -->
    <!-- (We will usually just use @autowired because it mostly does the same stuff but way easier) -->
    
    <!-- Account Bean -->
    
-   <bean name="account" class="com.revature.models.Account"></bean>
+     
+   <!--  <bean name="account" class="com.revature.models.Account"></bean> -->
    
    <!-- User Bean -->
    
-   <bean name="user" class="com.revature.models.User" scope="prototype">
+   <!-- <bean name="user" class="com.revature.models.User" scope="prototype"> -->
    
    <!-- the User Class has an Account as one of its fields. So we need to WIRE the beans together with the property tag -->
-   <property name="account" ref="account"></property>
+   <!-- <property name="account" ref="account"></property> -->
    <!-- name is the name of the field in the User Class. ref is the name of the Bean in our XML -->
    
-   </bean>
-   
+   <!-- </bean> -->
+  
 </beans>
 

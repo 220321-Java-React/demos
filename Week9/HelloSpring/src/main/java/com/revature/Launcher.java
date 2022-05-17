@@ -57,6 +57,8 @@ public class Launcher {
 		
 		//If you're reading this, we changed the User scope to "prototype" so that there can be unique instances
 		
+		//BUT BEN why is the Account data the same between both Users??
+		//Notice that we changed the User beans to prototype scope, but the Account is still in singleton scope
 		
 	}
 	
