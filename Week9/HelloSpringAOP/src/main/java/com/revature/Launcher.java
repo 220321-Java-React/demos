@@ -20,7 +20,20 @@ public class Launcher {
 		//Make a new Avenger object using the getById AvengerDAO method
 		Avenger a1 = aDAO.getById(2);
 		
-		System.out.println("hi");
+		a1.setFirstName("hello???"); //no logs will occur for anything we do in a1, because we didn't use getBean()
+		//SpringAOP only works on BEANS. BEANSSSSS.
+
+		//in order for any logs to occur, we need an Avenger BEAN, not an Avenger POJO (plain ol' java object)
+		Avenger a2 = ac.getBean(Avenger.class);
+		
+		//Give some values to this new Avenger
+		a2.setAveId(6);
+		a2.setAveName("Static Shock");
+		a2.setFirstName("Virgil");
+		a2.setLastName("Hawkins");
+		a2.setPower("Static Shock");
+		a2.setPowerLevel(528795468);
+
 		
 	}
 	
