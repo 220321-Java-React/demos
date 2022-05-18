@@ -34,6 +34,13 @@ public class Launcher {
 		a2.setPower("Static Shock");
 		a2.setPowerLevel(528795468);
 
+		//making Static Shock fight (to show @AfterReturning/Throwing)
+		System.out.println(aDAO.fight(a2, "Static Shock", 500)); //this will make our @AfterReturning advice execute
+		
+		
+		
+		
+		
 		
 	}
 	
