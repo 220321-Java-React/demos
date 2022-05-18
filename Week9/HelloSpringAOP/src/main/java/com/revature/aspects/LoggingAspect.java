@@ -3,10 +3,15 @@ package com.revature.aspects;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
+
+import com.revature.models.Avenger;
 
 @Component
 @Aspect //This Class is an ASPECT. We will handle all of our Logging functionality here.
@@ -39,4 +44,43 @@ public class LoggingAspect {
 		//jp is whatever method we're injecting advice into. returnedObject is the object that fight() returns
 		log.info(jp.getTarget() + " invoked " + jp.getSignature() + " returning " + returnedObject);
 	}
+	
+	@AfterThrowing(pointcut="execution(String fight(..))", throwing="thrownException")
+	public void logException(JoinPoint jp, Exception thrownException) {
+		//jp is whatever method we're injecting advice into. returnedObject is the object that fight() returns
+		log.warn(jp.getTarget() + " invoked " + jp.getSignature() + " throwing " + thrownException);
+	}
+	
+	
+	//@Around is the most complicated, but most powerful annotation in AOP
+	//with @Around, we don't have to specify a pointcut
+	//BUT we do have to use ProceedingJoinPoint instead of the regular JoinPoint
+	//NOTE how this one method can replace the @AfterReturning and @AfterThrowing
+	@Around("execution(String fight(..))")
+	public String logFight(ProceedingJoinPoint pjp) throws Throwable {
+		
+		//get the Avenger object from the arguments provided in the fight() method (it takes: Avenger, String, double)
+		Avenger a = (Avenger)pjp.getArgs()[0]; //we're getting the FIRST value, which is the Avenger object
+		//we just need to (cast) because .getArgs() can't guess what datatype it's getting. We have to tell it.
+		
+		//log before the method even executes
+		log.info(a.getAveName() + " IS ABOUT TO FIGHT!!");
+		
+		//get the distance value from the fight method
+		double distance = (double)pjp.getArgs()[2];
+		
+		//now, we can do some control flow based on the distance (any number < 6 will throw ArithmeticException)
+		if(distance < 6) {
+			log.warn(a.getAveName() + " IS ABOUT TO THROW AN EXCEPTION");
+		} else {
+			//actually let the fight() method run with the proceed() method
+			String s = (String)pjp.proceed();
+			log.info("THE FIGHT HAS CONCLUDED");
+			return s;
+		}
+		
+		return null;
+		
+	}
+	
 }

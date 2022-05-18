@@ -37,10 +37,15 @@ public class Launcher {
 		//making Static Shock fight (to show @AfterReturning/Throwing)
 		System.out.println(aDAO.fight(a2, "Static Shock", 500)); //this will make our @AfterReturning advice execute
 		
+		//we need a try/catch to prevent application crash when an Exception gets thrown
+		try {
+			System.out.println(aDAO.fight(a2, "Static Slap", 2)); //this will make our @AfterThrowing advice execute
+		} catch (ArithmeticException e){
+			System.out.println("caught an exception. hehe.");
+		}
 		
-		
-		
-		
+		//NOTICE the @AfterReturning and @AfterThrowing no longer execute after we created our @Around advice
+		//@Around basically can replace these, and SpringAOP agrees. So now we just get the @Around logs
 		
 	}
 	

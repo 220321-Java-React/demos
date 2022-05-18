@@ -14,3 +14,36 @@
 2022-05-18 12:12:22 INFO  LoggingAspect:28 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPowerLevel(int)
 2022-05-18 12:12:22 INFO  LoggingAspect:28 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
 2022-05-18 12:12:22 INFO  LoggingAspect:40 - com.revature.daos.AvengerDAO@3e6f3bae invoked String com.revature.daos.AvengerDAO.fight(Avenger,String,double) returning Static Shock attacks a bad guy with Static Shock from 500.0 feet away.
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=0, aveName=null, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setAveId(int)
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=null, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setAveName(String)
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setFirstName(String)
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=Virgil, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setLastName(String)
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPower(String)
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPowerLevel(int)
+2022-05-18 12:20:19 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
+2022-05-18 12:20:19 INFO  LoggingAspect:41 - com.revature.daos.AvengerDAO@265c5d69 invoked String com.revature.daos.AvengerDAO.fight(Avenger,String,double) returning Static Shock attacks a bad guy with Static Shock from 500.0 feet away.
+2022-05-18 12:20:19 INFO  LoggingAspect:47 - com.revature.daos.AvengerDAO@265c5d69 invoked String com.revature.daos.AvengerDAO.fight(Avenger,String,double) throwing java.lang.ArithmeticException
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=0, aveName=null, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setAveId(int)
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=null, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setAveName(String)
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setFirstName(String)
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=Virgil, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setLastName(String)
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPower(String)
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPowerLevel(int)
+2022-05-18 12:21:01 INFO  LoggingAspect:29 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
+2022-05-18 12:21:01 INFO  LoggingAspect:41 - com.revature.daos.AvengerDAO@13e698c7 invoked String com.revature.daos.AvengerDAO.fight(Avenger,String,double) returning Static Shock attacks a bad guy with Static Shock from 500.0 feet away.
+2022-05-18 12:21:01 WARN  LoggingAspect:47 - com.revature.daos.AvengerDAO@13e698c7 invoked String com.revature.daos.AvengerDAO.fight(Avenger,String,double) throwing java.lang.ArithmeticException
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=0, aveName=null, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setAveId(int)
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=null, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setAveName(String)
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=null, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setFirstName(String)
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=Virgil, lastName=null, powerLevel=0] invoked void com.revature.models.Avenger.setLastName(String)
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=null, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPower(String)
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=0] invoked void com.revature.models.Avenger.setPowerLevel(int)
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
+2022-05-18 12:38:14 INFO  LoggingAspect:67 - Static Shock IS ABOUT TO FIGHT!!
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
+2022-05-18 12:38:14 INFO  LoggingAspect:45 - com.revature.daos.AvengerDAO@1f12e153 invoked String com.revature.daos.AvengerDAO.fight(Avenger,String,double) returning Static Shock attacks a bad guy with Static Shock from 500.0 feet away.
+2022-05-18 12:38:14 INFO  LoggingAspect:78 - THE FIGHT HAS CONCLUDED
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
+2022-05-18 12:38:14 INFO  LoggingAspect:67 - Static Shock IS ABOUT TO FIGHT!!
+2022-05-18 12:38:14 INFO  LoggingAspect:33 - Avenger [aveId=6, aveName=Static Shock, power=Static Shock, firstName=Virgil, lastName=Hawkins, powerLevel=528795468] invoked String com.revature.models.Avenger.getAveName()
+2022-05-18 12:38:14 WARN  LoggingAspect:74 - Static Shock IS ABOUT TO THROW AN EXCEPTION
