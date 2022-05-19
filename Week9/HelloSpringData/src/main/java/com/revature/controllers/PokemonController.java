@@ -111,7 +111,7 @@ public class PokemonController {
 		
 		//.getForObject() will send a GET request to the specified URL
 		//So here, we're going to sent a GET request to pokeapi to find all pokemon of a given name
-		Pokemon externalPoke = restTemplate.getForObject("https://pokeapi.co/api/v2/pokemon/", Pokemon.class);
+		Pokemon externalPoke = restTemplate.getForObject("https://pokeapi.co/api/v2/pokemon/" + name, Pokemon.class);
 		
 		//control flow based on if the given name is valid or not
 		if(externalPoke == null) {
