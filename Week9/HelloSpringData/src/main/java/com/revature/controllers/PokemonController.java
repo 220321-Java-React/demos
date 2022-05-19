@@ -3,6 +3,7 @@ package com.revature.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,7 @@ public class PokemonController {
 	private PokemonDAO pDAO;
 
 	//constructor injection - now, PokemonController will automagically have a PokemonDAO associated with it. 
+	@Autowired
 	public PokemonController(PokemonDAO pDAO) {
 		super();
 		this.pDAO = pDAO;
@@ -64,13 +66,24 @@ public class PokemonController {
 	@GetMapping(value = "/id/{id}") //the number the user sends in will be assigned to that int id in the parameters
 	public ResponseEntity<Pokemon> findById(@PathVariable int id){
 		
-		Pokemon p = pDAO.getById(id); //create a Pokemon object from pDAO.getById()
+		//findById returns an OPTIONAL
+		//Optionals lend to code flexibility because it may or may not have the object requested. It may be null.
+		//we get the contents of an Optional with .get();
+		Pokemon p = pDAO.findById(id).get(); //create a Pokemon object from pDAO.getById()
 		
 		return ResponseEntity.ok(p); //send the new Pokemon object back with a 200 status code (OK)
+		
+		//getById might be trickier to use, fetchtype seems to mess with it.. So stick with findById for now :)
 		
 	}
 	
 	
+	//All requests coming in that end in pokemon/name/{some string} will go here
+	//This method will call the DAO method we had to create ourselves
+	@GetMapping(value = "/name/{name}")
+	public ResponseEntity<List<Pokemon>> findByName(@PathVariable String name){
+		return null;
+	}
 	
 	
 	//RESTTEMPLATE METHOD :)
