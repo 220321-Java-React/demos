@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -57,6 +58,20 @@ public class PokemonController {
 		//return ResponseEntity.status(200).body(pDAO.findAll());
 		
 	}
+	
+	//every GET request ending in /pokemon/id/{some number} will go here
+	//the number given as a URL endpoint will be the parameter in this method, hence @PathVariable
+	@GetMapping(value = "/id/{id}") //the number the user sends in will be assigned to that int id in the parameters
+	public ResponseEntity<Pokemon> findById(@PathVariable int id){
+		
+		Pokemon p = pDAO.getById(id); //create a Pokemon object from pDAO.getById()
+		
+		return ResponseEntity.ok(p); //send the new Pokemon object back with a 200 status code (OK)
+		
+	}
+	
+	
+	
 	
 	//RESTTEMPLATE METHOD :)
 	
