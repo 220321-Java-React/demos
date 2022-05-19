@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.revature.daos.PokemonDAO;
 import com.revature.models.Pokemon;
@@ -32,7 +33,10 @@ public class PokemonController {
 		this.pDAO = pDAO;
 	}
 	
-	//BEN WILL GO BACK TO THE NOTES ABOUT RESTTEMPLATE
+	//Instantiate a RestTemplate object to send HTTP requests... from Java wowww!!!!
+	//So now we can send an receive JSON to/from other servers (like pokeapi)
+	private RestTemplate restTemplate = new RestTemplate();
+	
 	
 	//MVC Methods below (to handle HTTP requests)--------------------------------
 	
@@ -100,7 +104,22 @@ public class PokemonController {
 		
 	}
 	
-	
-	//RESTTEMPLATE METHOD :)
+	//using RestTemplate to call all Pokemon of a certain type
+	//all GET requests ending in /pokemon/find/{some string} will go here
+	@GetMapping(value="/find/{name}")
+	public ResponseEntity<Pokemon> getPokemonFromApi(@PathVariable String name){
+		
+		//.getForObject() will send a GET request to the specified URL
+		//So here, we're going to sent a GET request to pokeapi to find all pokemon of a given name
+		Pokemon externalPoke = restTemplate.getForObject("https://pokeapi.co/api/v2/pokemon/", Pokemon.class);
+		
+		//control flow based on if the given name is valid or not
+		if(externalPoke == null) {
+			return ResponseEntity.noContent().build(); //send back a no content status code and empty body
+		} else {
+			return ResponseEntity.ok(externalPoke);
+		}
+		
+	}
 	
 }
