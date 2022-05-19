@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -82,7 +83,21 @@ public class PokemonController {
 	//This method will call the DAO method we had to create ourselves
 	@GetMapping(value = "/name/{name}")
 	public ResponseEntity<List<Pokemon>> findByName(@PathVariable String name){
-		return null;
+		
+		//Optional to hold either a null (if the name isn't found) or a Pokemon List (if the name is found)
+		Optional<List<Pokemon>> pokemonOptional = pDAO.findByName(name);
+		
+		//empty List to be populated if the Optional is not null
+		List<Pokemon> pokeList;
+		
+		if(pokemonOptional.isPresent()) { //isPresent() checks if the Optional has data in it, returns true if so
+			pokeList = pokemonOptional.get(); //remember .get() retrieves the data out of the Optional
+			return ResponseEntity.ok(pokeList);
+		} else {
+			return ResponseEntity.noContent().build(); //send back an empty body with a "no content" status code
+			//no content because the HTTP Request WAS technically successful, but there was no data there
+		}
+		
 	}
 	
 	
