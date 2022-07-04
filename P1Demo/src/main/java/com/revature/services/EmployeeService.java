@@ -23,5 +23,11 @@ public class EmployeeService {
 		return employees;
 		
 	}
+
+	public void deleteEmployee(int youreFired) {
+		
+		eDAO.removeEmployee(youreFired);
+		
+	}
 	
 }

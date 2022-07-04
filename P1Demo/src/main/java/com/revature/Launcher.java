@@ -56,6 +56,8 @@ public class Launcher {
 		//the app.post() method takes in a URL endpoint, add a place in the server to send the request to
 		app.post("/login", ac.loginHandler);
 		
+		app.delete("/delete/{id}", ec.deleteEmployeeHandler);
+		
 	}
 	
 }

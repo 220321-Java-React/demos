@@ -9,6 +9,8 @@ document.getElementById("getEmployeeButton").addEventListener("click", getEmploy
 document.getElementById("loginButton").addEventListener("click", loginFunction);
 
 
+document.getElementById("deleteEmployeeButton").addEventListener("click", deleteFunction);
+
 //getEmployees is an async function which has a fetch request to get employees from our server
 //remember, async makes a function return a Promise (which fetch requests return)
 async function getEmployees() {
@@ -125,5 +127,19 @@ if(response.status === 202){
     document.getElementById("welcomeHead").innerText="Login failed! Try Again";
     document.getElementById("welcomeHead").style.color = "red";
 }
+
+}
+
+async function deleteFunction(){
+
+    let empId = document.getElementById("employeeToDelete").value;
+
+    let response = await fetch(url+"/delete/"+empId, {
+
+        method: "DELETE", //send a POST request (would be a GET if we didn't specify...)
+        body: JSON.stringify(empId)
+    })
+
+    //would also be nice to add a <p> etc to say "employee X deleted!"
 
 }
