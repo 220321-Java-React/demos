@@ -1,7 +1,7 @@
 import React from "react";
 import { ChildComponent } from "../ChildComponent/ChildComponent";
 
-//again, every Class component has two paremeters, props and state
+//again, every Class component has two paremeters: <props and state>
 //by leaving the state parameter as "any", we can define whatever object we want to store state
 //and we're leaving the props parameter empty, since we aren't sending any data to this component
 export class ParentComponent extends React.Component<{}, any> {

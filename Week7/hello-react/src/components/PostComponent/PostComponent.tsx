@@ -1,4 +1,4 @@
-//import React like usual, but we'll also import useState, which is a hook we will below.
+//import React like usual, but we'll also import useState/useEffect, which are hooks we'll use below.
 import React, {useEffect, useState} from "react"; 
 import { IUser } from "../../interfaces/IUser";
 
@@ -6,15 +6,15 @@ import { IUser } from "../../interfaces/IUser";
 import "./PostComponent.css";
 
 //export CONST instead of export class, this is a function component not a class component
-//recall how lambdas/arrow functions work: they take in some data, and execute some code
-//in this case, we take in a object of type IUser as props and use it in this function
+//recall how lambdas/arrow functions work: they take in some data, and execute some code.
+//in this case, we take in an object of type IUser as props and use it in this function
 export const PostComponent: React.FC<IUser>=(user:IUser)  => {
     
 let coolVar:string = "I won't be used, and can't be inherited :(";
 //this variable is cool, but it's not part of state. We couldn't send this to other components
 
 //we can declare variables like normal but below we see:
-//destructing, which is how we declare variables from props
+//destructuring, which is how we declare variables from props
 //useState, which lets us declare state (which is data that can be sent to other components)
 
 //destructuring -
@@ -23,8 +23,9 @@ let coolVar:string = "I won't be used, and can't be inherited :(";
 //the name inside the curly braces must match a variable in the prop
 const {username} = user;
 
-//useState allows us to store and manipulate state (remember state is like component variables)
-//you declare a state variable and a mutator function, and a default value within the useState 
+//useState allows us to store and manipulate state 
+//you declare a variable, a mutator function, and a default value within the useState
+//so we can change the value of the "content" variable with the setContent() function. 
 let [content, setContent] = useState('');
 
 //useEffect allows us to execute some code at certain events in the component's life
@@ -37,7 +38,8 @@ useEffect(() => {
 
 
 
-//return (not render since this is a function component) here
+//return (not render since this is a function component) will provide the view
+//note - we use "className" instead of "class" in TSX.
 return(
     <div className="post-container">
         <div className="profile-container">

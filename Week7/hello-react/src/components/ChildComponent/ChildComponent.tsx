@@ -3,11 +3,11 @@ import React from "react";
 //notice props is of type any because we're expected a state object from the parent component
 //state we'll also make any so that we can create our own state based on the parent state
 
-//the parent sends a state of any type. this child accepts props of any type. see the connection?
-//the state in a parent component will be the props in a child component
+//ParentComponent sends state of any type. ChildComponent accepts props of any type. see the connection?
+//"the state in a parent component will be the props in a child component"
 export class ChildComponent extends React.Component<any, any>{
 
-    //this is a constructor, which is one way to initialize a class component and it's state
+    //this is a constructor, which is one way to initialize a class component and its state
         //In English, it "gives values to a component's variables"
     //remember, "props" is the variable coming in the left parameter of this class declaration
     //the constructor takes in our props object, which has the data we'll use
@@ -20,7 +20,7 @@ export class ChildComponent extends React.Component<any, any>{
         }
     }
 
-    //child component gets these values from its props, which is data coming from the parent
+    //child component gets these state values from its props, which is the data coming from the parent
     render() {
         return(
             <div>

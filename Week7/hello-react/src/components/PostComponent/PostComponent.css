@@ -1,7 +1,7 @@
 .post-container {
-    width: 100%;
+    width: 90%;
     display: flex;
-    padding: 25px;
+    padding: 15px;
     border: 2px solid black;
     flex-direction: column;
 }
@@ -11,6 +11,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    gap: .5em;
 }
 
 .profile-pic {

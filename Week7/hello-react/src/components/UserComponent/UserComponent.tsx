@@ -32,15 +32,15 @@ export class UserComponent extends React.Component<any, IUser> {
             }
         )
     }
-    //big picture of this code block: when this component renders, the state will be set
+    //big picture of this code block: 
+    //when this component renders, the state will be set due to the code executing in componentDidMount()
 
-    //of course, we need a render function that... renders things onto this component
+    //as usual, we need a render function that renders the view of this ClassComponent
     render() {
         return(
             <div>
-                <h2>{this.state.firstName} {this.state.lastName}</h2>
-                <h3>{this.state.username}</h3>
-                <h3>{this.state.email}</h3>
+                <h2>User: {this.state.firstName} {this.state.lastName} 
+                ({this.state.username}) Email: {this.state.email}</h2>
                 <PostComponent {...this.state}/>
             </div>
         )

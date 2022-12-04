@@ -1,5 +1,6 @@
 //the first step in any component is to import React from "react";
 import React from "react";
+import { SymbolDisplayPartKind } from "typescript";
 
 //Below, we're creating a CLASS BASED COMPONENT with Typescript. The component takes two parameters
 //The parameters are props and state, which we'll mess with later
